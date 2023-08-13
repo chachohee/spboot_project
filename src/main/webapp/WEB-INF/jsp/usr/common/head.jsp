@@ -5,6 +5,7 @@
 <html data-theme="halloween">
 <head>
 <meta charset="UTF-8">
+<link rel="shortcut icon" href="/resource/images/favicon.ico" />
 <!-- 테일윈드 불러오기 -->
 <!-- 노말라이즈, 라이브러리 -->
 <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css"

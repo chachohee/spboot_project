@@ -77,38 +77,31 @@
 		form.submit();
 	}
 
-	function loginIdDupChk(el) {
-
+function loginIdDupChk(el) {
+		
 		let loginIdDupChkMsg = $('#loginIdDupChkMsg');
-
+		
 		loginIdDupChkMsg.empty();
-
+		
 		el.value = el.value.trim();
-
+		
 		if (el.value.length == 0) {
-			loginIdDupChkMsg
-					.html(`<span class="text-red-500">아이디는 필수 입력 정보입니다.</span>`);
+			loginIdDupChkMsg.html(`<span class="text-red-500">아이디는 필수 입력 정보입니다.</span>`);
 			return;
 		}
-
-		$
-				.get(
-						'loginIdDupChk',
-						{
-							loginId : el.value
-						},
-						function(data) {
-							if (data.success) {
-								loginIdDupChkMsg
-										.html(`<span class="text-green-500">\${data.data1}은(는) \${data.msg}</span>`);
-								validLoginId = data.data1;
-							} else {
-								loginIdDupChkMsg
-										.html(`<span class="text-red-500">\${data.data1}은(는) \${data.msg}</span>`);
-								validLoginId = '';
-							}
-
-						}, 'json')
+		
+		$.get('loginIdDupChk', {
+			loginId : el.value
+		}, function(data){
+			if (data.success) {
+				loginIdDupChkMsg.html(`<span class="text-green-500">\${data.data1}은(는) \${data.msg}</span>`);
+				validLoginId = data.data1;
+			} else {
+				loginIdDupChkMsg.html(`<span class="text-red-500">\${data.data1}은(는) \${data.msg}</span>`);
+				validLoginId = '';
+			}
+			
+		}, 'json')
 	}
 </script>
 
