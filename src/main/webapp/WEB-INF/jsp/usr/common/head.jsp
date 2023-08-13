@@ -19,6 +19,31 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 <link rel="stylesheet" href="/resource/common.css" />
 <title>${pageTitle }</title>
+<script>
+	function Theme_toggle() {
+		
+		const theme = localStorage.getItem("theme") ?? "halloween";
+		
+		if (theme == 'halloween') {
+			localStorage.setItem("theme", "light");
+		} else {
+			localStorage.setItem("theme", "halloween");
+		}
+		
+		location.reload();
+	}
+	
+	function Theme_applyTo(themeName) {
+		$('html').attr('data-theme', themeName);
+	}
+	
+	function Theme_init() {
+		const theme = localStorage.getItem("theme") ?? "halloween";
+		Theme_applyTo(theme);
+	}
+	
+	Theme_init();
+</script>
 </head>
 <body>
 
@@ -55,6 +80,10 @@
 							</c:when>
 						</c:choose>
 					</ul>
+				</div>
+				<!-- 테마 -->
+				<div class="mt-3">
+					<input type="checkbox" class="toggle" checked onclick="Theme_toggle();" />
 				</div>
 			</div>
 		</div>
