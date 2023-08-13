@@ -226,6 +226,7 @@ function ToastEditor__init() {
       previewStyle: 'tab',
       initialValue: initialValue,
       height:'600px',
+      theme: theme,
       plugins: [
         [toastui.Editor.plugin.chart, ToastEditor__chartOptions],
         [toastui.Editor.plugin.codeSyntaxHighlight, {highlighter:Prism}],
@@ -259,6 +260,7 @@ function ToastEditorView__init() {
       el: node,
       initialValue: initialValue,
       viewer:true,
+      theme: theme,
       plugins: [
         [toastui.Editor.plugin.chart, ToastEditor__chartOptions],
         [toastui.Editor.plugin.codeSyntaxHighlight, {highlighter:Prism}],

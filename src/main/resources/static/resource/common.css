@@ -6,19 +6,3 @@
 footer{
 	height: 14rem;
 }
-
-html[data-theme="dark"] :is(.table-box-type-1 > table th, .table-box-type-1 > table td) {
-	border-color: white;
-}
-
-.theme-toggle .fa-solid {
-	display: none;
-}
-
-html[data-theme="dark"] .theme-toggle .fa-solid {
-	display: inline;
-}
-
-html[data-theme="dark"] .theme-toggle .fa-regular {
-	display: none;
-}
