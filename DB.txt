@@ -53,12 +53,29 @@ CREATE TABLE reply (
 	relId INT UNSIGNED NOT NULL COMMENT '관련 데이터 번호',
 	`body` TEXT NOT NULL
 );
+# file 테이블 생성
+CREATE TABLE `file`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+    originName VARCHAR(50) NOT NULL,
+    savedName VARCHAR(100) NOT NULL,
+    savedPath VARCHAR(100) NOT NULL
+);
+ALTER TABLE `file` ADD COLUMN memberId INT UNSIGNED NOT NULL;
+
+TRUNCATE `member`;
+TRUNCATE board;
+TRUNCATE article;
+TRUNCATE reactionPoint;
+TRUNCATE reply;
+TRUNCATE `file`;
 
 SELECT * FROM article;
 SELECT * FROM `member`;
 SELECT * FROM board;
 SELECT * FROM reactionPoint;
 SELECT * FROM reply;
+SELECT * FROM `file`;
 
 INSERT INTO board
 SET updateDate = NOW(),
@@ -77,3 +94,7 @@ authLevel = 3,
 nickname = '관리자',
 cellphoneNum = '01012345678',
 email = 'admin@test.com';
+
+select f.*, m.nickname as writerName
+from `file` as f inner join `member` as m
+on f.memberId = m.id;

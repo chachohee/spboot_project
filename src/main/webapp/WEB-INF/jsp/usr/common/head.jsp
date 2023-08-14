@@ -55,7 +55,14 @@
 		</div>
 		<div class="flex justify-end flex-1 px-2">
 			<div class="flex items-stretch">
-				<a class="btn btn-ghost rounded-btn">Gacha</a>
+				<div class="dropdown dropdown-end">
+					<label tabindex="0" class="btn btn-ghost rounded-btn">Gacha</label>
+					<ul tabindex="0"
+						class="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+						<li><a href="#">가챠 돌리기</a></li>
+						<li><a href="/usr/gacha/view">갤러리</a></li>
+					</ul>
+				</div>
 				<div class="dropdown dropdown-end">
 					<label tabindex="0" class="btn btn-ghost rounded-btn">Board</label>
 					<ul tabindex="0"
@@ -83,7 +90,7 @@
 				</div>
 				<!-- 테마 -->
 				<div class="mt-3">
-					<input type="checkbox" class="toggle" checked onclick="Theme_toggle();" />
+					<input id="tg" type="checkbox" class="toggle" checked onclick="Theme_toggle();" />
 				</div>
 			</div>
 		</div>

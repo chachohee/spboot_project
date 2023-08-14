@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
   mail:
     host: smtp.gmail.com
     port: 587
@@ -26,3 +30,5 @@ custom:
   siteMainUri: http://localhost:8080
   emailFrom: no-reply@localhost
   emailFromName: gachapong
+file:
+  dir: /Users/babydoll/Documents/upload
