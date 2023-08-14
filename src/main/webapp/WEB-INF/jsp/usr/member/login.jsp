@@ -37,9 +37,6 @@
 				</form>
 			</div>
 		</div>
-		<div>
-			<button class="btn btn-sm" onclick="history.back();">Go Back</button>
-		</div>
 	</div>
 </section>
 

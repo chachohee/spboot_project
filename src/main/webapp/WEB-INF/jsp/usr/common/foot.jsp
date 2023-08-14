@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 </div><!-- end wrap -->
+
+<div class="mx-4 mb-4">
+	<button class="btn btn-sm" onclick="history.back();">Go Back</button>
+	<a href="/" class="btn btn-sm">Go Home</a>
+</div>
 
 <footer class="footer p-10 bg-base-200 text-base-content">
   <div>

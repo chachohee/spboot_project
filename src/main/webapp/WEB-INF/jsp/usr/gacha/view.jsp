@@ -41,11 +41,6 @@
 			</tbody>
 		</table>
 	</div>
-
-	<div class="mt-4">
-		<button class="btn btn-sm" onclick="history.back();">Go Back</button>
-		<a href="/" class="btn btn-sm">Go Main</a>
-	</div>
 </div>
 
 <%@ include file="../common/foot.jsp"%>

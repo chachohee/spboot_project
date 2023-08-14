@@ -56,9 +56,6 @@
 				</table>
 			</div>
 		</form>
-		<div>
-			<button class="btn btn-sm" onclick="history.back();">Go Back</button>
-		</div>
 	</div>
 </section>
 

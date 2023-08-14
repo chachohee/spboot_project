@@ -35,9 +35,6 @@
 				<a class="btn btn-sm" href="login">로그인</a>
 			</div>
 		</div>
-		<div>
-			<button class="btn btn-sm" onclick="history.back();">Go Back</button>
-		</div>
 	</div>
 </section>
 

@@ -39,7 +39,7 @@ public class UsrReplyController {
 		Reply reply = replyService.getReply(id);
 		
 		if(reply.getMemberId() != rq.getLoginedMemberId()) {
-			return Util.jsHistoryBack("해당 댓글에 대한 권한이 없습니다");
+			return Util.jsHistoryBack("해당 댓글에 대한 권한이 없습니다.");
 		}
 		
 		replyService.deleteReply(id);
@@ -66,7 +66,7 @@ public class UsrReplyController {
 		Reply reply = replyService.getReply(id);
 		
 		if(reply.getMemberId() != rq.getLoginedMemberId()) {
-			return Util.jsHistoryBack("해당 댓글에 대한 권한이 없습니다");
+			return Util.jsHistoryBack("해당 댓글에 대한 권한이 없습니다.");
 		}
 		
 		replyService.modifyReply(id, body);

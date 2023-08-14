@@ -74,7 +74,7 @@ public class UsrArticleController {
 
 		int id = articleService.getLastInsertId();
 
-		return Util.jsReplace(Util.f("%d번 게시글을 작성했습니다", id), Util.f("detail?id=%d", id));
+		return Util.jsReplace(Util.f("%d번 게시글을 작성했습니다.", id), Util.f("detail?id=%d", id));
 	}
 
 	@RequestMapping("/usr/article/list")
@@ -169,7 +169,7 @@ public class UsrArticleController {
 
 		articleService.deleteArticle(id);
 
-		return Util.jsReplace(Util.f("%d번 게시글을 삭제했습니다", id), "list");
+		return Util.jsReplace(Util.f("%d번 게시글을 삭제했습니다.", id), "list");
 	}
 	
 	@RequestMapping("/usr/article/modify")
@@ -197,16 +197,16 @@ public class UsrArticleController {
 		Article article = articleService.getArticleById(id);
 
 		if (article == null) {
-			return Util.jsHistoryBack(Util.f("%d번 게시글은 존재하지 않습니다", id));
+			return Util.jsHistoryBack(Util.f("%d번 게시글은 존재하지 않습니다.", id));
 		}
 
 		if (rq.getLoginedMemberId() != article.getMemberId()) {
-			return Util.jsHistoryBack("해당 게시글에 대한 권한이 없습니다");
+			return Util.jsHistoryBack("해당 게시글에 대한 권한이 없습니다.");
 		}
 
 		articleService.modifyArticle(id, title, body);
 
-		return Util.jsReplace(Util.f("%d번 게시글을 수정했습니다", id), Util.f("detail?id=%d", id));
+		return Util.jsReplace(Util.f("%d번 게시글을 수정했습니다.", id), Util.f("detail?id=%d", id));
 	}
 
 }

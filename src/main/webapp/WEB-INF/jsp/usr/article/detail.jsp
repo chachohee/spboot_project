@@ -172,9 +172,6 @@
 		</div>
 	</c:forEach>
 	<!-- end 댓글 -->
-	<div class="mt-4">
-		<button class="btn btn-sm" onclick="history.back();">Go Back</button>
-	</div>
 </div>
 
 <%@ include file="../common/foot.jsp"%>

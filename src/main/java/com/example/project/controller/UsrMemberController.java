@@ -108,7 +108,7 @@ public class UsrMemberController {
 		}
 
 		if (member.getLoginPw().equals(Util.sha256(loginPw)) == false) {
-			return Util.jsHistoryBack("비밀번호가 일치하지 않습니다");
+			return Util.jsHistoryBack("비밀번호가 일치하지 않습니다.");
 		}
 		
 		this.rq.login(member);

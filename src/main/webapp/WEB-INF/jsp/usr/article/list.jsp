@@ -116,9 +116,6 @@
 		</div>
 	</div>
 	<!-- end 페이징 -->
-	<div>
-		<button class="btn btn-sm" onclick="history.back();">Go Back</button>
-	</div>
 </div>
 
 <%@ include file="../common/foot.jsp"%>
