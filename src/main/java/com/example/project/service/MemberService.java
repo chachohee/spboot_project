@@ -132,8 +132,4 @@ public class MemberService {
 	private void deleteMember(Member member) {
 		memberDao.deleteMember(member.getId());
 	}
-	
-	public int getAuthLevel(int ids) {
-		return memberDao.getAuthLevel(ids);
-	}
 }

@@ -155,11 +155,4 @@ public interface MemberDao {
 			""")
 	public void deleteMember(int id);
 
-	@Select("""
-			SELECT authLevel
-				FROM `member`
-				WHERE id = #{ids}
-			""")
-	public int getAuthLevel(int ids);
-
 }
