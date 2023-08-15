@@ -114,22 +114,7 @@ public class MemberService {
 		return memberDao.getMembers(authLevel, searchKeywordType, searchKeyword, itemsInAPage, limitStart);
 	}
 
-	public String deleteMembers(List<Integer> memberIds) {
-		for (int memberId : memberIds) {
-			Member member = getMemberById(memberId);
-			
-			if (member.getAuthLevel() == 3) {
-				return Util.jsHistoryBack("관리자 계정은 삭제할 수 없습니다.");
-			}
-			
-			if (member != null) {
-				deleteMember(member);
-			}
-		}
-		return "";
-	}
-
-	private void deleteMember(Member member) {
+	public void deleteMember(Member member) {
 		memberDao.deleteMember(member.getId());
 	}
 }

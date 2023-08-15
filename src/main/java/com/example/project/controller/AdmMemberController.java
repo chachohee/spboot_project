@@ -70,9 +70,19 @@ public class AdmMemberController {
 		for (String idStr : ids.split(",")) {
 			memberIds.add(Integer.parseInt(idStr));
 		}
-
-		memberService.deleteMembers(memberIds);
-
+		
+		for (int memberId : memberIds) {
+			Member member = memberService.getMemberById(memberId);
+			
+			if (member.getAuthLevel() == 3) {
+				return Util.jsHistoryBack("관리자 계정은 삭제할 수 없습니다.");
+			}
+			
+			if (member != null) {
+				memberService.deleteMember(member);
+			}
+		}
+		
 		return Util.jsReplace("선택한 회원이 삭제되었습니다.", "list");
 	}
 
