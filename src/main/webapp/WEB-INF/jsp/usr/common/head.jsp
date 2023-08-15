@@ -81,6 +81,9 @@
 								<li><a href="/usr/member/join">회원가입</a></li>
 							</c:when>
 							<c:when test="${rq.getLoginedMemberId() != 0 }">
+								<c:if test="${rq.loginedMember.authLevel == 3 }">
+									<li><a href="/adm/member/list">회원관리</a></li>
+								</c:if>
 								<li><a href="/usr/member/myPage">마이페이지</a></li>
 								<li><a
 									href="/usr/member/doLogout?id=${rq.getLoginedMemberId() }">로그아웃</a></li>
@@ -90,7 +93,7 @@
 				</div>
 				<!-- 테마 -->
 				<div class="mt-3">
-					<input id="tg" type="checkbox" class="toggle" checked onclick="Theme_toggle();" />
+					<input id="tg" type="checkbox" class="toggle" checked onchange="Theme_toggle();" />
 				</div>
 			</div>
 		</div>

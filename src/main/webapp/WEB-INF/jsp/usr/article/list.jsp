@@ -15,10 +15,8 @@
 				<input type="hidden" name="boardId" value="${board.id }" />
 				<div class="join">
 					<div>
-						<div>
-							<input class="input input-bordered join-item" type="text"
-								name="searchKeyword" placeholder="Search" />
-						</div>
+						<input class="input input-bordered join-item" type="text"
+							name="searchKeyword" placeholder="Search" />
 					</div>
 					<select class="select select-bordered join-item"
 						data-value="${searchKeywordType }" name="searchKeywordType">
