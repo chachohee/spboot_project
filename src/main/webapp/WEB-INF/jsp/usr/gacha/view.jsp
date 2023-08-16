@@ -45,18 +45,5 @@
 		</table>
 	</div>
 </div>
-<div class="container mx-auto my-4">
-	<div>
-		<c:forEach var="file" items="${files }">
-			<div>
-				<a href="#"> <img src="/usr/gacha/file/${file.id}"
-					style="width: 300px; height: 300px;" /></a>
-			</div>
-			<div class="flex justify-between" style="width: 300px">
-				<span>No.${file.id }</span><span>By ${file.writerName }</span>
-			</div>
-		</c:forEach>
-	</div>
-</div>
 
 <%@ include file="../common/foot.jsp"%>

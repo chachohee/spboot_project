@@ -34,6 +34,7 @@ public interface FileDao {
 				FROM `file` AS f
 				INNER JOIN `member` AS m
 				ON f.memberId = m.id
+				ORDER BY f.id DESC
 			""")
 	List<FileVO> getFiles();
 

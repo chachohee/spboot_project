@@ -16,27 +16,38 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.project.service.FileService;
 import com.example.project.util.Util;
 import com.example.project.vo.FileVO;
+import com.example.project.vo.Rq;
 
 @Controller
 public class FileUploadController {
 	private FileService fileService;
+	private Rq rq;
 
 	@Autowired
-	public FileUploadController(FileService fileService) {
+	public FileUploadController(FileService fileService, Rq rq) {
 		this.fileService = fileService;
+		this.rq = rq;
 	}
 
 	@RequestMapping("/usr/gacha/upload")
 	@ResponseBody
-	public String uploadFile(MultipartFile file, int memberId) {
-
+	public String uploadFile(MultipartFile file, int memberId) throws IOException {
+		
+		if (rq.getLoginedMemberId() == 0) {
+			return Util.jsHistoryBack("로그인 후 이용해주세요.");
+		}
+		
+		if(Util.empty(file.getBytes().toString())) {
+			return Util.jsHistoryBack("업로드할 파일을 선택해주세요.");
+		}
+		
 		try {
 			fileService.saveFile(file, memberId);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		return Util.jsReplace("파일 업로드 성공", "/");
+		return Util.jsReplace("파일 업로드 성공", "view");
 	}
 
 	@RequestMapping("/usr/gacha/view")
