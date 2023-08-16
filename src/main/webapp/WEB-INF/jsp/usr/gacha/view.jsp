@@ -9,8 +9,10 @@
 <div class="container mx-auto my-4">
 	<div>
 		<form action="upload" method="POST" enctype="multipart/form-data">
-			<input type="hidden" name="memberId" value="${rq.getLoginedMemberId() }" />
-			<input type="file" class="file-input file-input-bordered file-input-xs max-w-sm" name="file" />
+			<input type="hidden" name="memberId"
+				value="${rq.getLoginedMemberId() }" /> <input type="file"
+				class="file-input file-input-bordered file-input-xs max-w-sm"
+				name="file" />
 			<button class="btn btn-xs">이미지 업로드</button>
 		</form>
 	</div>
@@ -31,7 +33,8 @@
 						<td>${file.id }</td>
 						<td>
 							<div>
-								<img src="/usr/gacha/file/${file.id}" />
+								<a href="#"> <img src="/usr/gacha/file/${file.id}"
+									style="width: 100px; height: 100px;" /></a>
 							</div>
 						</td>
 						<td>${file.writerName }</td>
@@ -40,6 +43,19 @@
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
+</div>
+<div class="container mx-auto my-4">
+	<div>
+		<c:forEach var="file" items="${files }">
+			<div>
+				<a href="#"> <img src="/usr/gacha/file/${file.id}"
+					style="width: 300px; height: 300px;" /></a>
+			</div>
+			<div class="flex justify-between" style="width: 300px">
+				<span>No.${file.id }</span><span>By ${file.writerName }</span>
+			</div>
+		</c:forEach>
 	</div>
 </div>
 
