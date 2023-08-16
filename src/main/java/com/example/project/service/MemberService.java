@@ -51,7 +51,7 @@ public class MemberService {
 
 		memberDao.doJoin(loginId, loginPw, name, nickname, cellphoneNum, email);
 
-		return ResultData.from("S-1", Util.f("%s님이 가입되었습니다.", nickname), "member", getMemberById(getLastInsertId()));
+		return ResultData.from("S-1", Util.f("[ %s ]님이 가입되었습니다.", nickname), "member", getMemberById(getLastInsertId()));
 	}
 
 	public Member getMemberByNameAndEmail(String name, String email) {
@@ -114,6 +114,17 @@ public class MemberService {
 		return memberDao.getMembers(authLevel, searchKeywordType, searchKeyword, itemsInAPage, limitStart);
 	}
 
+	public void deleteMembers(List<Integer> memberIds) {
+		
+		for (int memberId : memberIds) {
+			Member member = getMemberById(memberId);
+
+			if (member != null) {
+				deleteMember(member);
+			}
+		}
+	}
+	
 	public void deleteMember(Member member) {
 		memberDao.deleteMember(member.getId());
 	}

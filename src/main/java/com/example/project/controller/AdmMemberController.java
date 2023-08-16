@@ -68,20 +68,19 @@ public class AdmMemberController {
 		List<Integer> memberIds = new ArrayList<>();
 
 		for (String idStr : ids.split(",")) {
-			memberIds.add(Integer.parseInt(idStr));
-		}
-		
-		for (int memberId : memberIds) {
-			Member member = memberService.getMemberById(memberId);
+			
+			int id = Integer.parseInt(idStr);
+			
+			memberIds.add(id);
+			
+			Member member = memberService.getMemberById(id);
 			
 			if (member.getAuthLevel() == 3) {
 				return Util.jsHistoryBack("관리자 계정은 삭제할 수 없습니다.");
 			}
-			
-			if (member != null) {
-				memberService.deleteMember(member);
-			}
 		}
+		
+		memberService.deleteMembers(memberIds);
 		
 		return Util.jsReplace("선택한 회원이 삭제되었습니다.", "list");
 	}

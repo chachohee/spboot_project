@@ -104,7 +104,7 @@ public class UsrMemberController {
 		Member member = memberService.getMemberByLoginId(loginId);
 		
 		if (member == null) {
-			return Util.jsHistoryBack(Util.f("%s은(는) 존재하지 않는 아이디입니다.", loginId));
+			return Util.jsHistoryBack(Util.f("[ %s ]은(는) 존재하지 않는 아이디입니다.", loginId));
 		}
 
 		if (member.getLoginPw().equals(Util.sha256(loginPw)) == false) {
@@ -117,7 +117,7 @@ public class UsrMemberController {
 		
 		this.rq.login(member);
 		
-		return Util.jsReplace(Util.f("%s님 로그인 하셨습니다.", member.getNickname()), "/");
+		return Util.jsReplace(Util.f("[ %s ]님 로그인 하셨습니다.", member.getNickname()), "/");
 	}
 	
 	@RequestMapping("/usr/member/doLogout")
@@ -132,7 +132,7 @@ public class UsrMemberController {
 		
 		this.rq.logout();
 		
-		return Util.jsReplace(Util.f("%s님 정상적으로 로그아웃 되었습니다.", member.getNickname()), "/");
+		return Util.jsReplace(Util.f("[ %s ]님 정상적으로 로그아웃 되었습니다.", member.getNickname()), "/");
 	}
 	
 	@RequestMapping("/usr/member/myPage")
@@ -178,7 +178,7 @@ public class UsrMemberController {
 		
 		Member member = memberService.getMemberById(rq.getLoginedMemberId());
 		
-		return Util.jsReplace(Util.f("%s님 회원정보 수정 성공", member.getNickname()), "myPage");
+		return Util.jsReplace(Util.f("[ %s ]님 회원정보 수정 성공", member.getNickname()), "myPage");
 	}
 	
 	@RequestMapping("/usr/member/passwordModify")

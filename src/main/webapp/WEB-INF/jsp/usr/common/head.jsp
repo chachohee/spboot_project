@@ -93,7 +93,7 @@
 				</div>
 				<!-- 테마 -->
 				<div class="mt-3">
-					<input id="tg" type="checkbox" class="toggle" checked onchange="Theme_toggle();" />
+					<input id="tg" type="checkbox" class="toggle" checked onclick="Theme_toggle();" />
 				</div>
 			</div>
 		</div>
