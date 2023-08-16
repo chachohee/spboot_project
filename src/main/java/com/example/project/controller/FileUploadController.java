@@ -53,11 +53,6 @@ public class FileUploadController {
 	public String view(Model model) {		
 
 		List<FileVO> files = fileService.getFiles();
-		
-//		List<FileVO> resizeFiles = new ArrayList<>();
-//		for (FileVO file : files) {
-//			
-//		}
 
 		model.addAttribute("files", files);
 
