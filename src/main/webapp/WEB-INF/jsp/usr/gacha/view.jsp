@@ -6,6 +6,22 @@
 
 <%@ include file="../common/head.jsp"%>
 
+<script>
+	function originalImgShow(a) {
+		$('#original-img').show();
+		$('.original-img-bg').show();
+	}
+	function backToInitImg() {
+		$('#original-img').hide();
+		$('.original-img-bg').hide();
+	}
+/* 	$('.original-img-bg').click(function(){
+		$('#original-img').hide();
+		$('.original-img-bg').hide();
+	}) */
+</script>
+
+<div class="original-img-bg"></div>
 <div class="container mx-auto my-4">
 	<div>
 		<form action="upload" method="POST" enctype="multipart/form-data">
@@ -18,6 +34,7 @@
 	</div>
 	<!-- 이미지 리스트 -->
 	<div class="overflow-x-auto">
+	
 		<table class="table">
 			<thead>
 				<tr>
@@ -33,8 +50,15 @@
 						<td>${file.id }</td>
 						<td>
 							<div>
-								<a href="#"> <img src="/usr/gacha/file/${file.id}"
-									style="width: 100px; height: 100px;" /></a>
+								<button onclick="originalImgShow();">
+									<img src="/usr/gacha/file/${file.id}"
+										style="width: 100px; height: 100px;" />
+								</button>
+							</div>
+							<div id="original-img">
+								<button id="originalFile" onclick="backToInitImg();">
+									<img src="/usr/gacha/file/${file.id}" />
+								</button>
 							</div>
 						</td>
 						<td>${file.writerName }</td>
