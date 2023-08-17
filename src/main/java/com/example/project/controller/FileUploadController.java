@@ -37,10 +37,10 @@ public class FileUploadController {
 			return Util.jsHistoryBack("로그인 후 이용해주세요.");
 		}
 		
-		if(Util.empty(file.getBytes().toString())) {
+		if(file.isEmpty()) {
 			return Util.jsHistoryBack("업로드할 파일을 선택해주세요.");
 		}
-		
+
 		try {
 			fileService.saveFile(file, memberId);
 		} catch (IOException e) {
