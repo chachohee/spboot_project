@@ -15,10 +15,10 @@
 		$('#original-img').hide();
 		$('.original-img-bg').hide();
 	}
-/* 	$('.original-img-bg').click(function(){
-		$('#original-img').hide();
-		$('.original-img-bg').hide();
-	}) */
+	/* 	$('.original-img-bg').click(function(){
+	 $('#original-img').hide();
+	 $('.original-img-bg').hide();
+	 }) */
 </script>
 
 <div class="original-img-bg"></div>
@@ -33,8 +33,10 @@
 		</form>
 	</div>
 	<!-- 이미지 리스트 -->
+	<c:set var="files" value="${files }"></c:set>
+
 	<div class="overflow-x-auto">
-	
+
 		<table class="table">
 			<thead>
 				<tr>
@@ -55,11 +57,11 @@
 										style="width: 100px; height: 100px;" />
 								</button>
 							</div>
-							<div id="original-img">
+							<%-- <div id="original-img">
 								<button id="originalFile" onclick="backToInitImg();">
 									<img src="/usr/gacha/file/${file.id}" />
 								</button>
-							</div>
+							</div> --%>
 						</td>
 						<td>${file.writerName }</td>
 						<td>${file.regDate }</td>
@@ -68,6 +70,13 @@
 			</tbody>
 		</table>
 	</div>
+</div>
+
+<c:set var="file1" value="${files.get(1) }"></c:set>
+<div id="original-img">
+	<button id="originalFile" onclick="backToInitImg();">
+		<img src="/usr/gacha/file1/${file1.id}" />
+	</button>
 </div>
 
 <%@ include file="../common/foot.jsp"%>

@@ -68,5 +68,14 @@ public class FileUploadController {
 
 		return new UrlResource("file:" + fileVo.getSavedPath()); 
 	}
+	
+	@RequestMapping("/usr/gacha/file1/{fileId}")
+	@ResponseBody
+	public Resource downloadImage(@PathVariable("fileId") int id) throws IOException {
+
+		FileVO fileVo = fileService.getFileById(id);
+
+		return new UrlResource("file:" + fileVo.getSavedPath()); 
+	}
 
 }
