@@ -50,14 +50,14 @@ public class FileUploadController {
 		return Util.jsReplace("파일 업로드 성공", "view");
 	}
 
-	@RequestMapping("/usr/gacha/view")
+	@RequestMapping("/usr/gacha/gallery")
 	public String view(Model model) {		
 
 		List<FileVO> files = fileService.getFiles();
 
 		model.addAttribute("files", files);
 
-		return "usr/gacha/view";
+		return "usr/gacha/gallery";
 	}
 
 	@RequestMapping("/usr/gacha/file/{fileId}")
@@ -66,16 +66,7 @@ public class FileUploadController {
 
 		FileVO fileVo = fileService.getFileById(id);
 
-		return new UrlResource("file:" + fileVo.getSavedPath()); 
+		return new UrlResource("file:" + fileVo.getSavedPath());
 	}
 	
-	@RequestMapping("/usr/gacha/file1/{fileId}")
-	@ResponseBody
-	public Resource downloadImage(@PathVariable("fileId") int id) throws IOException {
-
-		FileVO fileVo = fileService.getFileById(id);
-
-		return new UrlResource("file:" + fileVo.getSavedPath()); 
-	}
-
 }

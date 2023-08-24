@@ -32,3 +32,5 @@ custom:
   emailFromName: gachapong
 file:
   dir: /Users/babydoll/Documents/upload
+gacha:
+  dir: /Users/babydoll/Documents/gacha

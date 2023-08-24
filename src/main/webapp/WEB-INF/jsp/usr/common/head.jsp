@@ -59,8 +59,8 @@
 					<label tabindex="0" class="btn btn-ghost rounded-btn">Gacha</label>
 					<ul tabindex="0"
 						class="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-						<li><a href="#">가챠 돌리기</a></li>
-						<li><a href="/usr/gacha/view">갤러리</a></li>
+						<li><a href="/usr/gacha/gacha">가챠 돌리기</a></li>
+						<li><a href="/usr/gacha/gallery">갤러리</a></li>
 					</ul>
 				</div>
 				<div class="dropdown dropdown-end">
@@ -83,6 +83,7 @@
 							<c:when test="${rq.getLoginedMemberId() != 0 }">
 								<c:if test="${rq.loginedMember.authLevel == 3 }">
 									<li><a href="/adm/member/list">회원관리</a></li>
+									<li><a href="/adm/gacha/list">가챠관리</a></li>
 								</c:if>
 								<li><a href="/usr/member/myPage">마이페이지</a></li>
 								<li><a

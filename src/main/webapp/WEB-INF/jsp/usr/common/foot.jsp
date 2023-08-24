@@ -43,5 +43,9 @@
   </div>
 </footer>
 
+<!-- 원래 이미지 크기 보여주기 -->
+<div class="original-img-bg"></div>
+<div id="original-img"></div>
+
 </body>
 </html>

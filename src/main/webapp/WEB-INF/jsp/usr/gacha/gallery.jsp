@@ -7,21 +7,38 @@
 <%@ include file="../common/head.jsp"%>
 
 <script>
-	function originalImgShow(a) {
+	function originalImgShow(id) {
+		
+		const orgImg = $('#original-img').html();
+		console.log(orgImg);
+		let fileId = id;
+		console.log(fileId);
+		
+		let tag = `
+					<div id="original-img-div" onclick="backToInitImg();">
+						<img src="/usr/gacha/file/\${fileId}"/>
+					</div>
+				`;
+				
+		$('#original-img').append(tag);
+		
 		$('#original-img').show();
 		$('.original-img-bg').show();
+
 	}
+	
 	function backToInitImg() {
+		const orgImgDiv = document.getElementById("original-img-div");
+		
 		$('#original-img').hide();
 		$('.original-img-bg').hide();
+		
+		orgImgDiv.remove();
+		console.log(orgImgDiv);
 	}
-	/* 	$('.original-img-bg').click(function(){
-	 $('#original-img').hide();
-	 $('.original-img-bg').hide();
-	 }) */
+
 </script>
 
-<div class="original-img-bg"></div>
 <div class="container mx-auto my-4">
 	<div>
 		<form action="upload" method="POST" enctype="multipart/form-data">
@@ -52,16 +69,11 @@
 						<td>${file.id }</td>
 						<td>
 							<div>
-								<button onclick="originalImgShow();">
+								<button onclick="originalImgShow(${file.id});">
 									<img src="/usr/gacha/file/${file.id}"
 										style="width: 100px; height: 100px;" />
 								</button>
 							</div>
-							<%-- <div id="original-img">
-								<button id="originalFile" onclick="backToInitImg();">
-									<img src="/usr/gacha/file/${file.id}" />
-								</button>
-							</div> --%>
 						</td>
 						<td>${file.writerName }</td>
 						<td>${file.regDate }</td>
@@ -70,13 +82,6 @@
 			</tbody>
 		</table>
 	</div>
-</div>
-
-<c:set var="file1" value="${files.get(1) }"></c:set>
-<div id="original-img">
-	<button id="originalFile" onclick="backToInitImg();">
-		<img src="/usr/gacha/file1/${file1.id}" />
-	</button>
 </div>
 
 <%@ include file="../common/foot.jsp"%>

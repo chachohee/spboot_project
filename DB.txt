@@ -63,12 +63,22 @@ CREATE TABLE `file`(
 );
 ALTER TABLE `file` ADD COLUMN memberId INT UNSIGNED NOT NULL;
 
+CREATE TABLE gacha (
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	`name` VARCHAR(20) NOT NULL UNIQUE,
+	regDate DATETIME NOT NULL DEFAULT NOW(),
+	memberId INT UNSIGNED NOT NULL DEFAULT 0,
+	grantDate DATETIME COMMENT '이미지 부여한 날',
+	savedPath VARCHAR(500) NOT NULL
+);
+
 TRUNCATE `member`;
 TRUNCATE board;
 TRUNCATE article;
 TRUNCATE reactionPoint;
 TRUNCATE reply;
 TRUNCATE `file`;
+TRUNCATE gacha;
 
 SELECT * FROM article;
 SELECT * FROM `member`;
@@ -76,6 +86,8 @@ SELECT * FROM board;
 SELECT * FROM reactionPoint;
 SELECT * FROM reply;
 SELECT * FROM `file`;
+SELECT * FROM  gacha;
+
 
 INSERT INTO board
 SET updateDate = NOW(),
