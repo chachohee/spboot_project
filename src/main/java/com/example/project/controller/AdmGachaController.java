@@ -69,7 +69,7 @@ public class AdmGachaController {
 			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다");
 		}
 
-		int itemsInAPage = 10;
+		int itemsInAPage = 5;
 		int pagesCnt = (int) Math.ceil((double) gachaCnt / itemsInAPage);
 		
 		List<Gacha> files = gachaService.getFiles(memberId, searchKeywordType, searchKeyword, itemsInAPage, page);

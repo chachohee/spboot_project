@@ -3,6 +3,7 @@ package com.example.project.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,15 +33,21 @@ public class GachaService {
 			return;
 		}
 
-		String fileName = file.getOriginalFilename();
+		String orgName = file.getOriginalFilename();
+		
+		String uuid = UUID.randomUUID().toString();
+		
+		String extension = orgName.substring(orgName.lastIndexOf("."));
+		
+		String savedName = uuid + extension;
 
-		String savedPath = fileDir + "/" + fileName;
+		String savedPath = fileDir + "/" + savedName;
 
-		gachaDao.insertFileInfo(fileName, savedPath);
+		gachaDao.insertFileInfo(orgName, savedName, savedPath);
 
 		file.transferTo(new File(savedPath));
 	}
-
+	
 	public List<Gacha> getFiles(String memberId, String searchKeywordType, String searchKeyword, int itemsInAPage,
 			int page) {
 

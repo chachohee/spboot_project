@@ -40,14 +40,32 @@
 </script>
 
 <div class="container mx-auto my-4">
-	<div>
-		<form action="upload" method="POST" enctype="multipart/form-data">
-			<input type="hidden" name="memberId"
-				value="${rq.getLoginedMemberId() }" /> <input type="file"
-				class="file-input file-input-bordered file-input-xs max-w-sm"
-				name="file" />
-			<button class="btn btn-xs">이미지 업로드</button>
-		</form>
+	<div class="mb-4 flex justify-between items-end">
+		<div>
+			<form action="upload" method="POST" enctype="multipart/form-data">
+				<input type="hidden" name="memberId"
+					value="${rq.getLoginedMemberId() }" /> <input type="file"
+					class="file-input file-input-bordered file-input-xs max-w-sm"
+					name="file" />
+				<button class="btn btn-xs">이미지 업로드</button>
+			</form>
+		</div>
+		<div>
+			<form>
+				<div class="join">
+					<select class="select select-bordered join-item"
+						data-value="${searchKeywordType }"
+						class="select select-accent select-sm" name="searchKeywordType">
+						<option value="writerName">작성자</option>
+					</select>
+					<div>
+						<input class="input input-bordered join-item" type="text"
+							name="searchKeyword" placeholder="Search" />
+					</div>
+					<button class="btn join-item">Search</button>
+				</div>
+			</form>
+		</div>
 	</div>
 	<!-- 이미지 리스트 -->
 	<c:set var="files" value="${files }"></c:set>
@@ -81,6 +99,40 @@
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
+
+	<div class="mt-4 flex justify-center">
+		<div class="join">
+			<c:set var="pageMenuLen" value="5" />
+			<c:set var="startPage"
+				value="${page - pageMenuLen >= 1 ? page - pageMenuLen : 1 }" />
+			<c:set var="endPage"
+				value="${page + pageMenuLen <= pagesCnt ? page + pageMenuLen : pagesCnt }" />
+
+			<c:set var="pageBaseUri"
+				value="?searchKeywordType=${searchKeywordType }&searchKeyword=${searchKeyword }" />
+
+			<c:if test="${page == 1 }">
+				<a class="join-item btn btn-disabled">«</a>
+				<a class="join-item btn btn-disabled">&lt;</a>
+			</c:if>
+			<c:if test="${page > 1 }">
+				<a class="join-item btn" href="${pageBaseUri }&page=1">«</a>
+				<a class="join-item btn" href="${pageBaseUri }&page=${page - 1 }">&lt;</a>
+			</c:if>
+			<c:forEach begin="${startPage }" end="${endPage }" var="i">
+				<a class="join-item btn ${page == i ? 'btn-active' : '' }"
+					href="${pageBaseUri }&page=${i }">${i }</a>
+			</c:forEach>
+			<c:if test="${page < pagesCnt }">
+				<a class="join-item btn" href="${pageBaseUri }&page=${page + 1 }">&gt;</a>
+				<a class="join-item btn" href="${pageBaseUri }&page=${pagesCnt }">»</a>
+			</c:if>
+			<c:if test="${page == pagesCnt }">
+				<a class="join-item btn btn-disabled">&gt;</a>
+				<a class="join-item btn btn-disabled">»</a>
+			</c:if>
+		</div>
 	</div>
 </div>
 

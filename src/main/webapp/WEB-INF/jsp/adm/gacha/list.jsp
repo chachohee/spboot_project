@@ -11,16 +11,19 @@
 	<div>
 		<form action="upload" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="memberId"
-				value="${rq.getLoginedMemberId() }" /> <input type="file"
+				value="${rq.getLoginedMemberId() }" /> 
+				<input type="file"
 				class="file-input file-input-bordered file-input-xs max-w-sm"
-				name="file" />
+				name="files" onchange="selectFile(this);" />
+			<button class="btn btn-xs" onclick="removeFile(this);">삭제</button>
 			<button class="btn btn-xs">이미지 업로드</button>
+			<button class="btn btn-xs" onclick="addFile();">파일 추가</button>
 		</form>
 	</div>
 	<div class="mb-2 flex justify-between items-end">
-		<div class="mt-4">
-			<span>Total : ${gachaCnt } </span> <span>In Stock :  
-				${gachaStockCnt } </span> <span class="join-item">Sold Out : ${gachaSoldOutCnt } </span>
+		<div class="join mt-4">
+			<span class="join-item input input-bordered">Total : ${gachaCnt } </span> <span class="join-item input input-bordered">In Stock :  
+				${gachaStockCnt } </span> <span class="join-item input input-bordered">Sold Out : ${gachaSoldOutCnt } </span>
 		</div>
 		<form>
 			<div class="join">
@@ -71,7 +74,7 @@
 									style="width: 100px; height: 100px;" />
 							</div>
 						</td>
-						<td>${file.name }</td>
+						<td>${file.orgName }</td>
 						<td>${file.regDate }</td>
 						<td>${file.memberId }</td>
 						<td>${file.grantDate }</td>

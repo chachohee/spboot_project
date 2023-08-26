@@ -47,12 +47,19 @@ public class FileService {
 		file.transferTo(new File(savedPath));
 	}
 
-	public List<FileVO> getFiles() {
-		return fileDao.getFiles();
+	public List<FileVO> getFiles(String searchKeywordType, String searchKeyword, int itemsInAPage, int page) {
+		
+		int limitStart = (page - 1) * itemsInAPage;
+		
+		return fileDao.getFiles(searchKeywordType, searchKeyword, itemsInAPage, limitStart);
 	}
 
 	public FileVO getFileById(int fileId) {
 		return fileDao.getFileById(fileId);
+	}
+
+	public int getFilesCnt() {
+		return fileDao.getFilesCnt();
 	}
 
 }

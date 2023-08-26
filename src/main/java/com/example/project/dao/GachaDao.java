@@ -13,11 +13,12 @@ public interface GachaDao {
 
 	@Insert("""
 			INSERT INTO gacha
-				SET `name` = #{fileName},
+				SET orgName = #{orgName},
 					grantDate = null,
+					savedName = #{savedName},
 					savedPath = #{savedPath}
 			""")
-	void insertFileInfo(String fileName, String savedPath);
+	void insertFileInfo(String orgName, String savedName, String savedPath);
 	
 	@Select("""
 			<script>

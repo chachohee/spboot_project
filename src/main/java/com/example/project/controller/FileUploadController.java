@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -47,15 +48,29 @@ public class FileUploadController {
 			e.printStackTrace();
 		}
 
-		return Util.jsReplace("파일 업로드 성공", "view");
+		return Util.jsReplace("파일 업로드 성공", "gallery");
 	}
 
 	@RequestMapping("/usr/gacha/gallery")
-	public String view(Model model) {		
+	public String view(Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "writerName") String searchKeywordType,
+			@RequestParam(defaultValue = "") String searchKeyword) {
+		
+		int filesCnt = fileService.getFilesCnt();
+		
+		if (page <= 0) {
+			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다");
+		}
 
-		List<FileVO> files = fileService.getFiles();
+		int itemsInAPage = 5;
+		int pagesCnt = (int) Math.ceil((double) filesCnt / itemsInAPage);
+
+		List<FileVO> files = fileService.getFiles(searchKeywordType, searchKeyword, itemsInAPage, page);
 
 		model.addAttribute("files", files);
+		model.addAttribute("pagesCnt", pagesCnt);
+		model.addAttribute("page", page);
+		model.addAttribute("searchKeyword", searchKeyword);
+		model.addAttribute("searchKeywordType", searchKeywordType);
 
 		return "usr/gacha/gallery";
 	}
