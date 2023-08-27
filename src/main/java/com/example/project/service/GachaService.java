@@ -48,12 +48,12 @@ public class GachaService {
 		file.transferTo(new File(savedPath));
 	}
 	
-	public List<Gacha> getFiles(String memberId, String searchKeywordType, String searchKeyword, int itemsInAPage,
+	public List<Gacha> getFiles(int stock, String searchKeywordType, String searchKeyword, int itemsInAPage,
 			int page) {
 
 		int limitStart = (page - 1) * itemsInAPage;
 		
-		return gachaDao.getFiles(memberId, searchKeywordType, searchKeyword, itemsInAPage, limitStart);
+		return gachaDao.getFiles(stock, searchKeywordType, searchKeyword, itemsInAPage, limitStart);
 	}
 
 	public Gacha getFileById(int fileId) {

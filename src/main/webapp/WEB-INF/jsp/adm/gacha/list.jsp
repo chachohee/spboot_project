@@ -14,7 +14,7 @@
 				value="${rq.getLoginedMemberId() }" /> 
 				<input type="file"
 				class="file-input file-input-bordered file-input-xs max-w-sm"
-				name="files" onchange="selectFile(this);" />
+				name="file" onchange="selectFile(this);" />
 			<button class="btn btn-xs" onclick="removeFile(this);">삭제</button>
 			<button class="btn btn-xs">이미지 업로드</button>
 			<button class="btn btn-xs" onclick="addFile();">파일 추가</button>
@@ -28,8 +28,8 @@
 		<form>
 			<div class="join">
 				<select class="select select-bordered join-item"
-					data-value="${memberId }" class="select select-accent select-sm"
-					name="authLevel">
+					data-value="${stock }" class="select select-accent select-sm"
+					name="stock">
 					<option value="0">Total</option>
 					<option value="1">In Stock</option>
 					<option value="2">Sold Out</option>

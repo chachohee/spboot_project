@@ -25,31 +25,34 @@ public interface GachaDao {
 			SELECT *
 				FROM gacha
 				WHERE 1 = 1
-				<if test="searchKeyword != ''">
-					<choose>
-						<when test="searchKeywordType == 'memberId'">
-							AND memberId LIKE CONCAT('%', #{searchKeyword}, '%')
-						</when>
-						<when test="searchKeywordType == 'id'">
-							AND id LIKE CONCAT('%', #{searchKeyword}, '%')
-						</when>
-						<when test="searchKeywordType == 'name'">
-							AND name LIKE CONCAT('%', #{searchKeyword}, '%')
-						</when>
-						<otherwise>
-							AND (
-								memberId LIKE CONCAT('%', #{searchKeyword}, '%')
-								OR id LIKE CONCAT('%', #{searchKeyword}, '%')
-								OR name LIKE CONCAT('%', #{searchKeyword}, '%')
-							)
-						</otherwise>
-					</choose>
-				</if>
+					<if test="stock != 0">
+						AND stock = #{stock}
+					</if>
+					<if test="searchKeyword != ''">
+						<choose>
+							<when test="searchKeywordType == 'memberId'">
+								AND memberId LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+							<when test="searchKeywordType == 'id'">
+								AND id LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+							<when test="searchKeywordType == 'name'">
+								AND name LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+							<otherwise>
+								AND (
+									memberId LIKE CONCAT('%', #{searchKeyword}, '%')
+									OR id LIKE CONCAT('%', #{searchKeyword}, '%')
+									OR name LIKE CONCAT('%', #{searchKeyword}, '%')
+								)
+							</otherwise>
+						</choose>
+					</if>
 				ORDER BY id DESC
 				LIMIT #{limitStart}, #{itemsInAPage}
 			</script>
 			""")
-	List<Gacha> getFiles(String memberId, String searchKeywordType, String searchKeyword, int itemsInAPage,
+	List<Gacha> getFiles(int stock, String searchKeywordType, String searchKeyword, int itemsInAPage,
 			int limitStart);
 
 	@Select("""

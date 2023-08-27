@@ -56,11 +56,11 @@ public class AdmGachaController {
 	}
 
 	@RequestMapping("/adm/gacha/list")
-	public String view(Model model, @RequestParam(defaultValue = "0") String memberId,
+	public String view(Model model, @RequestParam(defaultValue = "0") int stock,
 			@RequestParam(defaultValue = "1") int page,
 			@RequestParam(defaultValue = "memberId,id,name") String searchKeywordType,
 			@RequestParam(defaultValue = "") String searchKeyword) {		
-
+		
 		int gachaCnt = gachaService.getGachaCnt();
 		int gachaStockCnt = gachaService.getGachaStockCnt();
 		int gachaSoldOutCnt = gachaService.getGachaSoldOutCnt();
@@ -72,7 +72,7 @@ public class AdmGachaController {
 		int itemsInAPage = 5;
 		int pagesCnt = (int) Math.ceil((double) gachaCnt / itemsInAPage);
 		
-		List<Gacha> files = gachaService.getFiles(memberId, searchKeywordType, searchKeyword, itemsInAPage, page);
+		List<Gacha> files = gachaService.getFiles(stock, searchKeywordType, searchKeyword, itemsInAPage, page);
 
 		model.addAttribute("gachaCnt", gachaCnt);
 		model.addAttribute("gachaStockCnt", gachaStockCnt);
@@ -82,6 +82,7 @@ public class AdmGachaController {
 		model.addAttribute("page", page);
 		model.addAttribute("searchKeyword", searchKeyword);
 		model.addAttribute("searchKeywordType", searchKeywordType);
+		model.addAttribute("stock", stock);
 
 		return "adm/gacha/list";
 	}

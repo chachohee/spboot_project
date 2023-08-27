@@ -10,7 +10,7 @@
 <div class="container mx-auto my-4">
 	<div class="mb-2 flex justify-between items-end">
 		<div>
-			<span>회원수 : ${membersCnt }명 (관리자 포함)</span>
+			<span>회원수 : ${membersCnt }명</span>
 		</div>
 		<form>
 			<div class="join">
@@ -58,15 +58,16 @@
 					</thead>
 					<tbody>
 						<c:forEach var="member" items="${members }">
-							<c:if test="${member.authLevel != 3 }">
-								<tr class="hover">
+							<tr class="hover">
+								<%-- <c:if test="${member.authLevel != 3 }"> --%>
 									<c:choose>
 										<c:when test="${member.delStatus != 1 }">
-											<td><input type="checkbox" class="checkbox-member-id" value="${member.id }" /></td>
+											<td><input type="checkbox" class="checkbox-member-id"
+												value="${member.id }" /></td>
 										</c:when>
 										<c:otherwise>
-											<td><input type="checkbox" class="checkbox-member-id" value="${member.id }"
-												disabled /></td>
+											<td><input type="checkbox" class="checkbox-member-id"
+												value="${member.id }" disabled /></td>
 										</c:otherwise>
 									</c:choose>
 									<td>${member.id }</td>
@@ -77,8 +78,8 @@
 									<td>${member.nickname }</td>
 									<td>${member.delStatusStr() }</td>
 									<td>${member.delDateStr() }</td>
-								</tr>
-							</c:if>
+								<%-- </c:if> --%>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
@@ -104,7 +105,8 @@
 			</script>
 
 	<div class="mt-4 flex justify-end">
-		<button class="btn btn-sm btn-error btn-delete-selected-members">회원 삭제</button>
+		<button class="btn btn-sm btn-error btn-delete-selected-members">회원
+			삭제</button>
 	</div>
 
 	<form action="doDeleteMembers" method="POST"
