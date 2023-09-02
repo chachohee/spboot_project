@@ -6,6 +6,38 @@
 
 <%@ include file="../common/head.jsp"%>
 
+<script>
+	function originalImgShow(id) {
+		
+		const orgImg = $('#original-img').html();
+		console.log(orgImg);
+		let gachaId = id;
+		console.log(gachaId);
+		
+		let tag = `
+					<div id="original-img-div" onclick="backToInitImg();">
+						<img src="/adm/gacha/file/\${gachaId}"/>
+					</div>
+				`;
+				
+		$('#original-img').append(tag);
+		
+		$('#original-img').show();
+		$('.original-img-bg').show();
+
+	}
+	
+	function backToInitImg() {
+		const orgImgDiv = document.getElementById("original-img-div");
+		
+		$('#original-img').hide();
+		$('.original-img-bg').hide();
+		
+		orgImgDiv.remove();
+		console.log(orgImgDiv);
+	}
+</script>
+
 <div class="container mx-auto my-4">
 	<div class="mb-4 flex justify-end">
 		<form>
@@ -44,8 +76,10 @@
 						<td>${myGacha.id }</td>
 						<td>
 							<div>
-								<img src="/adm/gacha/file/${myGacha.id}"
-									style="width: 100px; height: 100px;" />
+								<button onclick="originalImgShow(${myGacha.id});">
+									<img src="/adm/gacha/file/${myGacha.id}"
+										style="width: 100px; height: 100px;" />
+								</button>
 							</div>
 						</td>
 						<td>${myGacha.orgName }</td>
@@ -56,7 +90,7 @@
 			</tbody>
 		</table>
 	</div>
-	
+
 	<div class="mt-4 flex justify-center">
 		<div class="join">
 			<c:set var="pageMenuLen" value="5" />
@@ -90,7 +124,6 @@
 			</c:if>
 		</div>
 	</div>
-	
 </div>
 
 <%@ include file="../common/foot.jsp"%>

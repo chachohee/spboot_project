@@ -7,12 +7,43 @@
 
 <%@ include file="../../usr/common/head.jsp"%>
 
+<script>
+	function originalImgShow(id) {
+		
+		const orgImg = $('#original-img').html();
+		console.log(orgImg);
+		let fileId = id;
+		console.log(fileId);
+		
+		let tag = `
+					<div id="original-img-div" onclick="backToInitImg();">
+						<img src="/adm/gacha/file/\${fileId}"/>
+					</div>
+				`;
+				
+		$('#original-img').append(tag);
+		
+		$('#original-img').show();
+		$('.original-img-bg').show();
+
+	}
+	
+	function backToInitImg() {
+		const orgImgDiv = document.getElementById("original-img-div");
+		
+		$('#original-img').hide();
+		$('.original-img-bg').hide();
+		
+		orgImgDiv.remove();
+		console.log(orgImgDiv);
+	}
+</script>
+
 <div class="container mx-auto my-4">
 	<div>
 		<form action="upload" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="memberId"
-				value="${rq.getLoginedMemberId() }" /> 
-				<input type="file" multiple
+				value="${rq.getLoginedMemberId() }" /> <input type="file" multiple
 				class="file-input file-input-bordered file-input-xs max-w-sm"
 				name="files" />
 			<button class="btn btn-xs">이미지 업로드</button>
@@ -20,8 +51,11 @@
 	</div>
 	<div class="mb-2 flex justify-between items-end">
 		<div class="join mt-4">
-			<span class="join-item input input-bordered">Total : ${gachaTotalCnt } </span> <span class="join-item input input-bordered">In Stock :  
-				${gachaStockCnt } </span> <span class="join-item input input-bordered">Sold Out : ${gachaSoldOutCnt } </span>
+			<span class="join-item input input-bordered">Total :
+				${gachaTotalCnt } </span> <span class="join-item input input-bordered">In
+				Stock : ${gachaStockCnt } </span> <span
+				class="join-item input input-bordered">Sold Out :
+				${gachaSoldOutCnt } </span>
 		</div>
 		<form>
 			<div class="join">
@@ -68,8 +102,10 @@
 						<td>${file.id }</td>
 						<td>
 							<div>
-								<img src="/adm/gacha/file/${file.id}"
-									style="width: 100px; height: 100px;" />
+								<button onclick="originalImgShow(${file.id});">
+									<img src="/adm/gacha/file/${file.id}"
+										style="width: 100px; height: 100px;" />
+								</button>
 							</div>
 						</td>
 						<td>${file.orgName }</td>
@@ -81,7 +117,7 @@
 			</tbody>
 		</table>
 	</div>
-	
+
 	<div class="mt-4 flex justify-center">
 		<div class="join">
 			<c:set var="pageMenuLen" value="5" />
@@ -115,7 +151,7 @@
 			</c:if>
 		</div>
 	</div>
-	
+
 </div>
 
 <%@ include file="../../usr/common/foot.jsp"%>

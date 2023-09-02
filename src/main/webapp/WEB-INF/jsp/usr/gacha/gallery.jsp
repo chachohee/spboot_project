@@ -36,7 +36,6 @@
 		orgImgDiv.remove();
 		console.log(orgImgDiv);
 	}
-
 </script>
 
 <div class="container mx-auto my-4">
