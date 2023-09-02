@@ -26,6 +26,7 @@ CREATE TABLE `member`(
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴 여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜'
 );
+
 CREATE TABLE board (
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	regDate DATETIME NOT NULL DEFAULT NOW(),
@@ -111,3 +112,8 @@ email = 'admin@test.com';
 select f.*, m.nickname as writerName
 from `file` as f inner join `member` as m
 on f.memberId = m.id;
+
+SELECT id 
+FROM gacha
+WHERE memberId = 0
+ORDER BY RAND() LIMIT 1;

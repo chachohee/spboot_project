@@ -5,6 +5,7 @@
 <html data-theme="halloween">
 <head>
 <meta charset="UTF-8">
+<!-- 파비콘 -->
 <link rel="shortcut icon" href="/resource/images/favicon.ico" />
 <!-- 테일윈드 불러오기 -->
 <!-- 노말라이즈, 라이브러리 -->
@@ -86,6 +87,9 @@
 									<li><a href="/adm/gacha/list">가챠관리</a></li>
 								</c:if>
 								<li><a href="/usr/member/myPage">마이페이지</a></li>
+								<c:if test="${rq.loginedMember.authLevel == 1 }">
+									<li><a href="/usr/gacha/myCollection">마이콜렉션</a></li>
+								</c:if>
 								<li><a
 									href="/usr/member/doLogout?id=${rq.getLoginedMemberId() }">로그아웃</a></li>
 							</c:when>

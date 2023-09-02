@@ -79,6 +79,24 @@ public class GachaService {
 		return gachaDao.getGachasCnt(stock, searchKeywordType, searchKeyword);
 	}
 
+	public int getGachaId() {
+		return gachaDao.getGachaId();
+	}
+
+	public void updateGachaInfo(int gachaId, int memberId) {
+		gachaDao.updateGachaInfo(gachaId, memberId);
+	}
+
+	public int getMyGachasCnt(int memberId, String searchKeywordType, String searchKeyword) {
+		return gachaDao.getMyGachasCnt(memberId, searchKeywordType, searchKeyword);
+	}
 	
+	public List<Gacha> getMyGachas(int memberId, String searchKeywordType, String searchKeyword,
+			int itemsInAPage, int page) {
+		
+		int limitStart = (page - 1) * itemsInAPage;
+		
+		return gachaDao.getMyGachas(memberId, searchKeywordType, searchKeyword, itemsInAPage, limitStart);
+	}
 
 }

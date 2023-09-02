@@ -128,4 +128,5 @@ public class MemberService {
 	public void deleteMember(Member member) {
 		memberDao.deleteMember(member.getId());
 	}
+
 }
