@@ -27,25 +27,28 @@ public class GachaService {
 		this.gachaDao = gachaDao;
 	}
 	
-	public void saveFile(MultipartFile file) throws IOException {
+	public void saveFile(List<MultipartFile> files) throws IOException {
 
-		if (file.isEmpty()) {
+		if (files.isEmpty()) {
 			return;
 		}
-
-		String orgName = file.getOriginalFilename();
 		
-		String uuid = UUID.randomUUID().toString();
-		
-		String extension = orgName.substring(orgName.lastIndexOf("."));
-		
-		String savedName = uuid + extension;
+		for (MultipartFile file : files) {
+			
+			String orgName = file.getOriginalFilename();
+			
+			String uuid = UUID.randomUUID().toString();
+			
+			String extension = orgName.substring(orgName.lastIndexOf("."));
+			
+			String savedName = uuid + extension;
 
-		String savedPath = fileDir + "/" + savedName;
+			String savedPath = fileDir + "/" + savedName;
 
-		gachaDao.insertFileInfo(orgName, savedName, savedPath);
+			gachaDao.insertFileInfo(orgName, savedName, savedPath);
 
-		file.transferTo(new File(savedPath));
+			file.transferTo(new File(savedPath));
+		}
 	}
 	
 	public List<Gacha> getFiles(int stock, String searchKeywordType, String searchKeyword, int itemsInAPage,
@@ -60,8 +63,8 @@ public class GachaService {
 		return gachaDao.getFileById(fileId);
 	}
 
-	public int getGachaCnt() {
-		return gachaDao.getGachaCnt();
+	public int getGachaTotalCnt() {
+		return gachaDao.getGachaTotalCnt();
 	}
 
 	public int getGachaStockCnt() {
@@ -70,6 +73,10 @@ public class GachaService {
 
 	public int getGachaSoldOutCnt() {
 		return gachaDao.getGachaSoldOutCnt();
+	}
+
+	public int getGachasCnt(int stock, String searchKeywordType, String searchKeyword) {
+		return gachaDao.getGachasCnt(stock, searchKeywordType, searchKeyword);
 	}
 
 	

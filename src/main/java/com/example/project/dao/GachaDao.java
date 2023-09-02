@@ -36,14 +36,14 @@ public interface GachaDao {
 							<when test="searchKeywordType == 'id'">
 								AND id LIKE CONCAT('%', #{searchKeyword}, '%')
 							</when>
-							<when test="searchKeywordType == 'name'">
-								AND name LIKE CONCAT('%', #{searchKeyword}, '%')
+							<when test="searchKeywordType == 'orgName'">
+								AND orgName LIKE CONCAT('%', #{searchKeyword}, '%')
 							</when>
 							<otherwise>
 								AND (
 									memberId LIKE CONCAT('%', #{searchKeyword}, '%')
 									OR id LIKE CONCAT('%', #{searchKeyword}, '%')
-									OR name LIKE CONCAT('%', #{searchKeyword}, '%')
+									OR orgName LIKE CONCAT('%', #{searchKeyword}, '%')
 								)
 							</otherwise>
 						</choose>
@@ -66,7 +66,7 @@ public interface GachaDao {
 			SELECT COUNT(*)
 				FROM gacha
 			""")
-	int getGachaCnt();
+	int getGachaTotalCnt();
 
 	@Select("""
 			SELECT COUNT(*)
@@ -81,5 +81,37 @@ public interface GachaDao {
 				WHERE memberId != 0
 			""")
 	int getGachaSoldOutCnt();
+
+	@Select("""
+			<script>
+			SELECT COUNT(*)
+				FROM gacha
+				WHERE 1 = 1
+					<if test="stock != 0">
+						AND stock = #{stock}
+					</if>
+					<if test="searchKeyword != ''">
+						<choose>
+							<when test="searchKeywordType == 'memberId'">
+								AND memberId LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+							<when test="searchKeywordType == 'id'">
+								AND id LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+							<when test="searchKeywordType == 'orgName'">
+								AND orgName LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+							<otherwise>
+								AND (
+									memberId LIKE CONCAT('%', #{searchKeyword}, '%')
+									OR id LIKE CONCAT('%', #{searchKeyword}, '%')
+									OR orgName LIKE CONCAT('%', #{searchKeyword}, '%')
+								)
+							</otherwise>
+						</choose>
+					</if>
+			</script>
+			""")
+	int getGachasCnt(int stock, String searchKeywordType, String searchKeyword);
 
 }

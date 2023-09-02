@@ -12,17 +12,15 @@
 		<form action="upload" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="memberId"
 				value="${rq.getLoginedMemberId() }" /> 
-				<input type="file"
+				<input type="file" multiple
 				class="file-input file-input-bordered file-input-xs max-w-sm"
-				name="file" onchange="selectFile(this);" />
-			<button class="btn btn-xs" onclick="removeFile(this);">삭제</button>
+				name="files" />
 			<button class="btn btn-xs">이미지 업로드</button>
-			<button class="btn btn-xs" onclick="addFile();">파일 추가</button>
 		</form>
 	</div>
 	<div class="mb-2 flex justify-between items-end">
 		<div class="join mt-4">
-			<span class="join-item input input-bordered">Total : ${gachaCnt } </span> <span class="join-item input input-bordered">In Stock :  
+			<span class="join-item input input-bordered">Total : ${gachaTotalCnt } </span> <span class="join-item input input-bordered">In Stock :  
 				${gachaStockCnt } </span> <span class="join-item input input-bordered">Sold Out : ${gachaSoldOutCnt } </span>
 		</div>
 		<form>
@@ -36,10 +34,10 @@
 				</select> <select class="select select-bordered join-item"
 					data-value="${searchKeywordType }"
 					class="select select-accent select-sm" name="searchKeywordType">
-					<option value="memberId,id,name">전체</option>
+					<option value="memberId,id,orgName">전체</option>
 					<option value="memberId">회원아이디</option>
 					<option value="id">이미지 번호</option>
-					<option value="name">이미지 이름</option>
+					<option value="orgName">이미지 이름</option>
 				</select>
 				<div>
 					<input class="input input-bordered join-item" type="text"

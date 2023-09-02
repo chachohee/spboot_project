@@ -32,7 +32,7 @@ public class AdmGachaController {
 
 	@RequestMapping("/adm/gacha/upload")
 	@ResponseBody
-	public String uploadFile(MultipartFile file) throws IOException {
+	public String uploadFile(List<MultipartFile> files) throws IOException {
 		
 		if (rq.getLoginedMemberId() == 0) {
 			return Util.jsHistoryBack("로그인 후 이용해주세요.");
@@ -42,12 +42,12 @@ public class AdmGachaController {
 			return Util.jsHistoryBack("관리자만 업로드 가능합니다.");
 		}
 		
-		if(file.isEmpty()) {
+		if(files.isEmpty()) {
 			return Util.jsHistoryBack("업로드할 파일을 선택해주세요.");
 		}
 
 		try {
-			gachaService.saveFile(file);
+			gachaService.saveFile(files);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -58,10 +58,10 @@ public class AdmGachaController {
 	@RequestMapping("/adm/gacha/list")
 	public String view(Model model, @RequestParam(defaultValue = "0") int stock,
 			@RequestParam(defaultValue = "1") int page,
-			@RequestParam(defaultValue = "memberId,id,name") String searchKeywordType,
+			@RequestParam(defaultValue = "memberId,id,orgName") String searchKeywordType,
 			@RequestParam(defaultValue = "") String searchKeyword) {		
 		
-		int gachaCnt = gachaService.getGachaCnt();
+		int gachaTotalCnt = gachaService.getGachaTotalCnt();
 		int gachaStockCnt = gachaService.getGachaStockCnt();
 		int gachaSoldOutCnt = gachaService.getGachaSoldOutCnt();
 		
@@ -69,12 +69,13 @@ public class AdmGachaController {
 			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다");
 		}
 
+		int getGachasCnt = gachaService.getGachasCnt(stock, searchKeywordType, searchKeyword);
 		int itemsInAPage = 5;
-		int pagesCnt = (int) Math.ceil((double) gachaCnt / itemsInAPage);
+		int pagesCnt = (int) Math.ceil((double) getGachasCnt / itemsInAPage);
 		
 		List<Gacha> files = gachaService.getFiles(stock, searchKeywordType, searchKeyword, itemsInAPage, page);
 
-		model.addAttribute("gachaCnt", gachaCnt);
+		model.addAttribute("gachaTotalCnt", gachaTotalCnt);
 		model.addAttribute("gachaStockCnt", gachaStockCnt);
 		model.addAttribute("gachaSoldOutCnt", gachaSoldOutCnt);
 		model.addAttribute("files", files);
