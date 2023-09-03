@@ -127,7 +127,7 @@
 				value="${page + pageMenuLen <= pagesCnt ? page + pageMenuLen : pagesCnt }" />
 
 			<c:set var="pageBaseUri"
-				value="?searchKeywordType=${searchKeywordType }&searchKeyword=${searchKeyword }" />
+				value="?stock=${stock }&searchKeywordType=${searchKeywordType }&searchKeyword=${searchKeyword }" />
 
 			<c:if test="${page == 1 }">
 				<a class="join-item btn btn-disabled">«</a>

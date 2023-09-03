@@ -125,7 +125,8 @@ public interface GachaDao {
 
 	@Update("""
 			UPDATE gacha
-				SET grantDate = NOW(),
+				SET stock = 2,
+					grantDate = NOW(),
 					memberId = #{memberId}
 				WHERE id = #{gachaId}
 			""")

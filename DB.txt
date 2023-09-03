@@ -117,3 +117,8 @@ SELECT id
 FROM gacha
 WHERE memberId = 0
 ORDER BY RAND() LIMIT 1;
+
+update gacha 
+set memberId = 0,
+grantDate = NULL,
+stock = 1;
