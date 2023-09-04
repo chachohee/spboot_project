@@ -49,13 +49,11 @@
 			<button class="btn btn-xs">이미지 업로드</button>
 		</form>
 	</div>
-	<div class="mb-2 flex justify-between items-end">
-		<div class="join mt-4">
-			<span class="join-item input input-bordered">Total :
-				${gachaTotalCnt } </span> <span class="join-item input input-bordered">In
-				Stock : ${gachaStockCnt } </span> <span
-				class="join-item input input-bordered">Sold Out :
-				${gachaSoldOutCnt } </span>
+	<div class="mt-4 mb-4 flex justify-between items-end">
+		<div class="join">
+			<b class="w-24">Total : ${gachaTotalCnt }</b>
+			<b class="w-32">In Stock : ${gachaStockCnt }</b> 
+			<b>Sold Out : ${gachaSoldOutCnt }</b>
 		</div>
 		<form>
 			<div class="join">

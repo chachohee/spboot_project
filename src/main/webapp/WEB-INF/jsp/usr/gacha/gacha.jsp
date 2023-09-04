@@ -6,12 +6,12 @@
 
 <script>
 function loading() {
-	if (${rq.getLoginedMemberId()} == 0) {
+	if (${rq.getLoginedMemberId() == 0}) {
 		alert('로그인 후 이용해주세요.');
 		return;
 	}
-	if (${rq.loginedMember.authLevel} == 3) {
-		alert('회원만 사용할 수 있습니다.');
+	if (${rq.loginedMember.authLevel == 3}) {
+		alert('회원만 이용 가능한 기능입니다.');
 		return;
 	}
     LoadingWithMask();

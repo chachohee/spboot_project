@@ -44,7 +44,7 @@ public class UsrGachaController {
 		
 		gachaService.updateGachaInfo(gachaId, rq.getLoginedMemberId()); //가챠 정보 업데이트
 		
-		return Util.jsReplace("가챠 얻기 성공", "myCollection");
+		return Util.jsReplace("가챠 얻기 성공!", "myCollection");
 	}
 	
 	@RequestMapping("/usr/gacha/myCollection")

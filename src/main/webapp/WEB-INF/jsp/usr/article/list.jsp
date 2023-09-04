@@ -14,10 +14,6 @@
 			<form>
 				<input type="hidden" name="boardId" value="${board.id }" />
 				<div class="join">
-					<div>
-						<input class="input input-bordered join-item" type="text"
-							name="searchKeyword" placeholder="Search" />
-					</div>
 					<select class="select select-bordered join-item"
 						data-value="${searchKeywordType }" name="searchKeywordType">
 						<option disabled selected>Filter</option>
@@ -25,6 +21,10 @@
 						<option value="body">내용</option>
 						<option value="title,body">제목 + 내용</option>
 					</select>
+					<div>
+						<input class="input input-bordered join-item" type="text"
+							name="searchKeyword" placeholder="Search" />
+					</div>
 					<button class="btn join-item">Search</button>
 				</div>
 			</form>
