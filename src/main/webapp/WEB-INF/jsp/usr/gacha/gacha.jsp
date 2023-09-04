@@ -6,12 +6,19 @@
 
 <script>
 function loading() {
+	if (${rq.getLoginedMemberId()} == 0) {
+		alert('로그인 후 이용해주세요.');
+		return;
+	}
+	if (${rq.loginedMember.authLevel} == 3) {
+		alert('회원만 사용할 수 있습니다.');
+		return;
+	}
     LoadingWithMask();
     setTimeout("closeLoadingWithMask()", 3000);
-    /* location.href="/usr/gacha/getGacha"; */
 }
  
-function LoadingWithMask(gif) {
+function LoadingWithMask() {
     //화면의 높이와 너비를 구합니다.
     var maskHeight = $(document).height();
     var maskWidth  = window.document.body.clientWidth;

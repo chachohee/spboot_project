@@ -97,8 +97,12 @@
 					</ul>
 				</div>
 				<!-- 테마 -->
-				<div class="mt-3">
-					<input id="tg" type="checkbox" class="toggle" checked onclick="Theme_toggle();" />
+				<div>
+					<a class="h-full px-3 theme-toggle flex items-center" href="javascript:Theme_toggle();">
+						<span><i class="fa-regular fa-sun"></i></span>
+						<span><i class="fa-solid fa-sun"></i></span>
+					</a>
+					<!-- <input id="tg" type="checkbox" class="toggle" checked onclick="Theme_toggle();"/> -->
 				</div>
 			</div>
 		</div>

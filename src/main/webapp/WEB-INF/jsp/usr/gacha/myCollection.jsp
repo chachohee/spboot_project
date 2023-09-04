@@ -10,9 +10,7 @@
 	function originalImgShow(id) {
 		
 		const orgImg = $('#original-img').html();
-		console.log(orgImg);
 		let gachaId = id;
-		console.log(gachaId);
 		
 		let tag = `
 					<div id="original-img-div" onclick="backToInitImg();">
@@ -34,7 +32,6 @@
 		$('.original-img-bg').hide();
 		
 		orgImgDiv.remove();
-		console.log(orgImgDiv);
 	}
 </script>
 

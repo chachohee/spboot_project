@@ -54,10 +54,19 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 		ir.addPathPatterns("/usr/reply/doModify");
 		ir.addPathPatterns("/usr/reply/doDelete");
 		ir.addPathPatterns("/usr/reply/getReplyContent");
+		ir.addPathPatterns("/usr/gacha/getGacha");
+		ir.addPathPatterns("/usr/gacha/myCollection");
+		ir.addPathPatterns("/usr/gacha/upload");
+		ir.addPathPatterns("/adm/member/list"); 
+		ir.addPathPatterns("/adm/member/doDeleteMembers");
+		ir.addPathPatterns("/adm/gacha/upload");
+		ir.addPathPatterns("/adm/gacha/list");
+		ir.addPathPatterns("/adm/gacha/file/{fileId}");
 		
 		ir = registry.addInterceptor(needLogoutInterceptor);
 		ir.addPathPatterns("/usr/member/doJoin");
 		ir.addPathPatterns("/usr/member/login");
 		ir.addPathPatterns("/usr/member/doLogin");
+
 	}
 }
