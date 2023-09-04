@@ -2,6 +2,7 @@ package com.example.project.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -50,5 +51,11 @@ public interface FileDao {
 				FROM file
 			""")
 	int getFilesCnt();
+
+	@Delete("""
+			DELETE FROM `file`
+				WHERE id = #{id}
+			""")
+	void deleteFile(int id);
 
 }

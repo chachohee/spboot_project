@@ -78,6 +78,7 @@
 					<th>Img</th>
 					<th>WriterName</th>
 					<th>RegDate</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -94,6 +95,11 @@
 						</td>
 						<td>${file.writerName }</td>
 						<td>${file.regDate }</td>
+						<td><c:if
+								test="${rq.getLoginedMemberId() == file.memberId}">
+								<a class="btn btn-xs" href="/usr/gacha/file/doDelete?id=${file.id }"
+									onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
+							</c:if></td>
 					</tr>
 				</c:forEach>
 			</tbody>

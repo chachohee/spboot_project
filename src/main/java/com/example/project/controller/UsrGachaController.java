@@ -71,5 +71,24 @@ public class UsrGachaController {
 		
 		return "usr/gacha/myCollection";
 	}
+	
+	@RequestMapping("/usr/gacha/doDelete")
+	@ResponseBody
+	public String doDelete(int id) {
+
+		Gacha foundGacha = gachaService.getFileById(id);
+
+		if (foundGacha == null) {
+			return Util.jsHistoryBack(Util.f("%d번 가챠는 존재하지 않습니다.", id));
+		}
+
+		if (foundGacha.getMemberId() != rq.getLoginedMemberId()) {
+			return Util.jsHistoryBack("해당 가챠에 대한 권한이 없습니다.");
+		}
+
+		gachaService.deleteGacha(id);
+
+		return Util.jsReplace(Util.f("%d번 가챠를 삭제했습니다.", id), "myCollection");
+	}
 
 }

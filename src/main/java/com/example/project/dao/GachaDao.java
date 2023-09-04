@@ -194,4 +194,13 @@ public interface GachaDao {
 			""")
 	int getMyGachasCnt(int memberId, String searchKeywordType, String searchKeyword);
 
+	@Update("""
+			UPDATE gacha
+				SET stock = 1,
+					grantDate = NULL,
+					memberId = 0
+				WHERE id = #{id}
+			""")
+	void deleteGacha(int id);
+
 }

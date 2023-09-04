@@ -84,4 +84,23 @@ public class FileUploadController {
 		return new UrlResource("file:" + fileVo.getSavedPath());
 	}
 	
+	@RequestMapping("/usr/gacha/file/doDelete")
+	@ResponseBody
+	public String doDelete(int id) {
+
+		FileVO foundFile = fileService.getFileById(id);
+
+		if (foundFile == null) {
+			return Util.jsHistoryBack(Util.f("%d번 파일은 존재하지 않습니다.", id));
+		}
+
+		if (foundFile.getMemberId() != rq.getLoginedMemberId()) {
+			return Util.jsHistoryBack("해당 파일에 대한 권한이 없습니다.");
+		}
+
+		fileService.deleteFile(id);
+
+		return Util.jsReplace(Util.f("%d번 파일을 삭제했습니다.", id), "/usr/gacha/gallery");
+	}
+	
 }

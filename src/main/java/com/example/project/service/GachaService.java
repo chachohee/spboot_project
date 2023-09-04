@@ -99,4 +99,7 @@ public class GachaService {
 		return gachaDao.getMyGachas(memberId, searchKeywordType, searchKeyword, itemsInAPage, limitStart);
 	}
 
+	public void deleteGacha(int id) {
+		gachaDao.deleteGacha(id);
+	}
 }

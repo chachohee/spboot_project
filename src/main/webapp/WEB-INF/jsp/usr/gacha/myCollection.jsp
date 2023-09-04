@@ -65,6 +65,7 @@
 					<th>ImgName</th>
 					<th>RegDate</th>
 					<th>GrantDate</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -82,6 +83,11 @@
 						<td>${myGacha.orgName }</td>
 						<td>${myGacha.regDate }</td>
 						<td>${myGacha.grantDate }</td>
+						<td><c:if
+								test="${rq.getLoginedMemberId() == myGacha.memberId}">
+								<a class="btn btn-xs" href="doDelete?id=${myGacha.id }"
+									onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
+							</c:if></td>
 					</tr>
 				</c:forEach>
 			</tbody>

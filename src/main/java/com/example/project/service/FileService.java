@@ -62,4 +62,8 @@ public class FileService {
 		return fileDao.getFilesCnt();
 	}
 
+	public void deleteFile(int id) {
+		fileDao.deleteFile(id);
+	}
+
 }
