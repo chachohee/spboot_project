@@ -20,9 +20,11 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 <link rel="stylesheet" href="/resource/common.css" />
 <title>${pageTitle }</title>
+
 <script>
 	function Theme_toggle() {
 		
+		//A ?? B -> A가 null이거나 undefined이면 B로 해라.
 		const theme = localStorage.getItem("theme") ?? "halloween";
 		
 		if (theme == 'halloween') {
@@ -30,10 +32,10 @@
 		} else {
 			localStorage.setItem("theme", "halloween");
 		}
-		
+	
 		location.reload();
 	}
-	
+
 	function Theme_applyTo(themeName) {
 		$('html').attr('data-theme', themeName);
 	}
@@ -96,16 +98,28 @@
 						</c:choose>
 					</ul>
 				</div>
-				<!-- 테마 -->
-				<div>
-					<a class="h-full px-3 theme-toggle flex items-center" href="javascript:Theme_toggle();">
-						<span><i class="fa-regular fa-sun"></i></span>
-						<span><i class="fa-solid fa-sun"></i></span>
-					</a>
-					<!-- <input id="tg" type="checkbox" class="toggle" checked onclick="Theme_toggle();"/> -->
+				<!-- 테마 적용 -->
+				<div class="mt-3">
+					<input id="tg" type="checkbox" class="toggle" onchange="Theme_toggle();"/>
 				</div>
+				<script>
+					let toggle = $('#tg');
+					
+					function Toggle_checked(){
+						const theme = localStorage.getItem("theme") ?? "halloween";
+						
+						if (theme == 'halloween') {
+							$('#tg').prop("checked", false);
+							
+						} else {
+							$('#tg').prop("checked", true);
+						}
+					}
+					
+					Toggle_checked();
+				</script>
 			</div>
 		</div>
 	</div>
-	<!-- 본문 -->
+	<!— 본문 —>
 	<div id="wrap">

@@ -42,8 +42,10 @@ public class AdmGachaController {
 			return Util.jsHistoryBack("관리자만 업로드 가능합니다.");
 		}
 		
-		if(files.isEmpty()) {
-			return Util.jsHistoryBack("업로드할 파일을 선택해주세요.");
+		for (MultipartFile file : files) {
+			if (file.isEmpty()) {
+				return Util.jsHistoryBack("업로드할 파일을 선택해주세요.");
+			}
 		}
 
 		try {
