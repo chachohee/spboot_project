@@ -121,5 +121,6 @@
 			</div>
 		</div>
 	</div>
-	<!— 본문 —>
+	
+	<!-- 본문 start -->
 	<div id="wrap">

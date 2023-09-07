@@ -45,6 +45,8 @@ CREATE TABLE reactionPoint (
 	relId INT UNSIGNED NOT NULL COMMENT '관련 데이터 번호',
 	`point` INT NOT NULL DEFAULT 0 
 );
+ALTER TABLE reactionPoint ADD FOREIGN KEY(relId) REFERENCES article(id) ON DELETE CASCADE;
+
 CREATE TABLE reply (
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	regDate DATETIME NOT NULL DEFAULT NOW(),
@@ -54,6 +56,8 @@ CREATE TABLE reply (
 	relId INT UNSIGNED NOT NULL COMMENT '관련 데이터 번호',
 	`body` TEXT NOT NULL
 );
+ALTER TABLE reply ADD FOREIGN KEY(relId) REFERENCES article(id) ON DELETE CASCADE;
+
 # file 테이블 생성
 CREATE TABLE `file`(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -109,16 +113,16 @@ nickname = '관리자',
 cellphoneNum = '01012345678',
 email = 'admin@test.com';
 
-select f.*, m.nickname as writerName
-from `file` as f inner join `member` as m
-on f.memberId = m.id;
+SELECT f.*, m.nickname AS writerName
+FROM `file` AS f INNER JOIN `member` AS m
+ON f.memberId = m.id;
 
 SELECT id 
 FROM gacha
 WHERE memberId = 0
 ORDER BY RAND() LIMIT 1;
 
-update gacha 
-set memberId = 0,
+UPDATE gacha 
+SET memberId = 0,
 grantDate = NULL,
 stock = 1;

@@ -69,9 +69,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="myGacha" items="${myGachas }">
+				<c:forEach var="myGacha" items="${myGachas }" varStatus="status">
 					<tr>
-						<td>${myGacha.id }</td>
+						<td>${status.count}</td>
 						<td>
 							<div>
 								<button onclick="originalImgShow(${myGacha.id});">
