@@ -1,5 +1,6 @@
 # GaCha Pong 💊✨
-![gacha](https://github.com/chachohee/spboot_project/assets/83406032/629fb56d-ee1b-407c-8d20-bc861de06545)
+![gacha 복사본](https://github.com/chachohee/spboot_project/assets/83406032/c57fec09-55b0-4ed9-b74b-f44fa59bc36a)
+
 랜덤으로 이미지를 얻고, 갤러리에 자신이 뽑은 이미지를 자랑할 수 있습니다!😊<br>
 게시판 CRUD를 중점으로 한 스프링부트 프로젝트입니다.
 
@@ -68,9 +69,30 @@
 
 ## 🔍 검색 기능
 - 각 페이지 우측 상단에 적용
-- GACHA - 가챠 갤러리
-- BOARD - 공지사항, 자유게시판
-- USER - 가챠 관리, 회원 관리, 마이컬렉션
+#### GACHA 
+- 가챠 갤러리
+
+<img width="1424" alt="스크린샷 2023-09-15 오전 2 27 24" src="https://github.com/chachohee/spboot_project/assets/83406032/1b691da9-935c-4605-b968-8334b583cf8d">
+
+#### BOARD 
+- 공지사항, 자유게시판
+
+<img width="1424" alt="스크린샷 2023-09-15 오전 2 27 43" src="https://github.com/chachohee/spboot_project/assets/83406032/d3c872e9-1a9b-4355-b21d-156791cd6389">
+
+#### USER 
+- 회원 관리
+
+<img width="1424" alt="스크린샷 2023-09-15 오전 2 27 53" src="https://github.com/chachohee/spboot_project/assets/83406032/41424092-067c-4bad-b524-a687c252ccb2">
+<img width="1424" alt="스크린샷 2023-09-15 오전 2 27 57" src="https://github.com/chachohee/spboot_project/assets/83406032/cf6b635f-8ce0-4670-a771-3ccf08e37194">
+
+- 가챠 관리
+
+<img width="1424" alt="스크린샷 2023-09-15 오전 2 28 06" src="https://github.com/chachohee/spboot_project/assets/83406032/8d10efec-1bf0-499b-9fe4-c65c54b20dad">
+<img width="1424" alt="스크린샷 2023-09-15 오전 2 28 11" src="https://github.com/chachohee/spboot_project/assets/83406032/df0e5e9f-e5e8-421f-b493-e0d77deb8f7b">
+
+- 마이컬렉션
+
+<img width="1424" alt="스크린샷 2023-09-15 오전 2 28 32" src="https://github.com/chachohee/spboot_project/assets/83406032/6d5b924c-3f4f-4176-acb5-919190ba3c93">
 
 ## ⚙️ 테마 변경(다크 테마/라이트 테마)
 ![테마변경](https://github.com/chachohee/spboot_project/assets/83406032/6e37aaa0-abb2-4523-9a51-3330b3799c29)
