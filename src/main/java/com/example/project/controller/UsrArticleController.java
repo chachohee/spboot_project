@@ -155,7 +155,7 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
-	public String doDelete(int id) {
+	public String doDelete(int id, int boardId) {
 
 		Article foundArticle = articleService.getArticleById(id);
 
@@ -169,7 +169,7 @@ public class UsrArticleController {
 
 		articleService.deleteArticle(id);
 
-		return Util.jsReplace(Util.f("%d번 게시글을 삭제했습니다.", id), "list");
+		return Util.jsReplace(Util.f("%d번 게시글을 삭제했습니다.", id), "list?boardId=" + boardId);
 	}
 	
 	@RequestMapping("/usr/article/modify")

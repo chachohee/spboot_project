@@ -67,7 +67,7 @@
 		<a class="btn btn-sm" href="list?boardId=${article.boardId }">목록</a>
 		<c:if test="${loginedMemberId == article.memberId }">
 			<a class="btn btn-sm" href="modify?id=${article.id }">수정</a>
-			<a class="btn btn-sm" href="doDelete?id=${article.id }"
+			<a class="btn btn-sm" href="doDelete?id=${article.id }&boardId=${article.boardId }"
 				onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
 		</c:if>
 	</div>
