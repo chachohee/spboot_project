@@ -1,7 +1,7 @@
 # GaCha Pong 💊✨
 ![gacha](https://github.com/chachohee/spboot_project/assets/83406032/629fb56d-ee1b-407c-8d20-bc861de06545)
-게시판 CRUD를 중점으로 한 스프링부트 프로젝트입니다.<br>
-랜덤으로 이미지를 얻고, 갤러리에 자신이 뽑은 이미지를 자랑할 수 있습니다!😊
+랜덤으로 이미지를 얻고, 갤러리에 자신이 뽑은 이미지를 자랑할 수 있습니다!😊<br>
+게시판 CRUD를 중점으로 한 스프링부트 프로젝트입니다.
 
 # 주요 기능 설명
 ## 👩🏻‍🏫 관리자 기능
@@ -28,6 +28,7 @@
 ![회원가입](https://github.com/chachohee/spboot_project/assets/83406032/9ba26fbd-5d19-409f-bb16-aa323edb6f68)
 
 - 로그인, 로그아웃
+
 ![로그인로그아웃](https://github.com/chachohee/spboot_project/assets/83406032/85dde46b-a3e7-4e30-8d0b-2e30f31e650f)
 
 ### 회원정보 수정, 비밀번호 변경
@@ -52,8 +53,13 @@
 ## 🥚 가챠 기능
 ### 가챠 얻기
 - 랜덤 이미지를 얻으면 마이컬렉션에 저장
+
+![가챠뽑기마이컬렉션](https://github.com/chachohee/spboot_project/assets/83406032/2debf061-aae7-4046-84b5-0077d1fda6e7)
+
 ### 나의 가챠 자랑하기
-- 갤러리에 이미지 업로드(단일 파일 업로드)
+- 단일 파일 업로드
+
+![단일파일업로드](https://github.com/chachohee/spboot_project/assets/83406032/ab7e6e33-37ce-429a-8210-0170c7b09fdd)
 
 ## 📝 게시판 CRUD
 - 게시글 작성, 조회, 수정, 삭제
