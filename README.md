@@ -13,7 +13,7 @@
 ### 랜덤으로 생성된 이미지 파일 업로드
 - 다중 파일 업로드
 
-![다중파일업로드](https://github.com/chachohee/spboot_project/assets/83406032/18372f60-481d-4472-b024-c85a5ee25594)
+![다중파일업로드](https://github.com/chachohee/spboot_project/assets/83406032/bb5aeffa-e58e-48d8-b398-0c3ff903cb78)
 ### 회원 관리
 - 회원 삭제 시, 삭제 여부와 삭제 날짜 update
 
@@ -33,3 +33,9 @@
 
 ## 📝 게시판 CRUD
 - 게시글 작성, 조회, 수정, 삭제
+
+## 🔍 검색 기능
+- 각 페이지 우측 상단에 적용
+- GACHA - 가챠 갤러리
+- BOARD - 공지사항, 자유게시판
+- USER - 가챠 관리, 회원 관리, 마이컬렉션
