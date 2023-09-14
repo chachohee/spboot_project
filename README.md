@@ -1,5 +1,5 @@
 # GaCha Pong 💊✨
-![gacha 복사본](https://github.com/chachohee/spboot_project/assets/83406032/8581cee7-b8b6-4583-bc92-d9761ffd6f65)
+<img width="774" alt="스크린샷 2023-09-15 오전 2 56 55" src="https://github.com/chachohee/spboot_project/assets/83406032/db36327d-cf69-4b6e-843f-ba107ecb9c09">
 
 랜덤으로 이미지를 얻고, 갤러리에 자신이 뽑은 이미지를 자랑할 수 있습니다!😊<br>
 게시판 CRUD를 중점으로 한 스프링부트 프로젝트입니다.🥚✨
