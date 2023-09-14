@@ -8,11 +8,16 @@
 ### 랜덤 이미지 생성
 - [hashlips_art_engine](https://github.com/HashLips/hashlips_art_engine) 참고
 - 조합 이미지 layer는 [Figma](https://www.figma.com/) 사용
+
 ![랜덤이미지](https://github.com/chachohee/spboot_project/assets/83406032/efc9eddd-4c5f-49f7-ac56-3233020bc533)
 ### 랜덤으로 생성된 이미지 파일 업로드
 - 다중 파일 업로드
+
 ![다중파일업로드](https://github.com/chachohee/spboot_project/assets/83406032/18372f60-481d-4472-b024-c85a5ee25594)
 ### 회원 관리
+- 회원 삭제 시, 삭제 여부와 삭제 날짜 update
+
+![회원관리](https://github.com/chachohee/spboot_project/assets/83406032/0f2ce64d-674b-4d61-93cc-8a001d814476)
 
 ## 👩‍👧‍👦 회원 기능
 ### 회원가입, 로그인, 로그아웃 기능
