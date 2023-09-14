@@ -22,12 +22,21 @@
 ![회원관리](https://github.com/chachohee/spboot_project/assets/83406032/0f2ce64d-674b-4d61-93cc-8a001d814476)
 
 ## 👩‍👧‍👦 회원 기능
-### 회원가입, 로그인, 로그아웃 기능
+### 회원가입, 로그인, 로그아웃
+- 회원가입
+
 ![회원가입](https://github.com/chachohee/spboot_project/assets/83406032/9ba26fbd-5d19-409f-bb16-aa323edb6f68)
+
+- 로그인, 로그아웃
 ![로그인로그아웃](https://github.com/chachohee/spboot_project/assets/83406032/85dde46b-a3e7-4e30-8d0b-2e30f31e650f)
 
-### 회원정보 수정, 비밀번호 변경 기능
+### 회원정보 수정, 비밀번호 변경
+- 회원정보 수정
+
 ![회원정보수정](https://github.com/chachohee/spboot_project/assets/83406032/e1ddaa44-10f4-469b-be45-b2ffc55fae79)
+
+- 비밀번호 변경
+
 ![비밀번호변경](https://github.com/chachohee/spboot_project/assets/83406032/40a253b1-1938-4932-bcb0-cc3131fb958d)
 
 ### 아이디 찾기, 비밀번호 찾기(임시 패스워드 전송)
@@ -48,6 +57,8 @@
 
 ## 📝 게시판 CRUD
 - 게시글 작성, 조회, 수정, 삭제
+- 댓글 작성, 조회, 수정, 삭제
+- 좋아요, 싫어요
 
 ## 🔍 검색 기능
 - 각 페이지 우측 상단에 적용
@@ -55,5 +66,5 @@
 - BOARD - 공지사항, 자유게시판
 - USER - 가챠 관리, 회원 관리, 마이컬렉션
 
-## ⚙️ 테마 변경(다크테마/라이트테마)
+## ⚙️ 테마 변경(다크 테마/라이트 테마)
 ![테마변경](https://github.com/chachohee/spboot_project/assets/83406032/6e37aaa0-abb2-4523-9a51-3330b3799c29)
