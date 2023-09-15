@@ -4,7 +4,7 @@
 랜덤으로 이미지를 얻고, 갤러리에 자신이 뽑은 이미지를 자랑할 수 있습니다!😊<br>
 게시판 CRUD를 중점으로 한 스프링부트 프로젝트입니다.🥚✨
 
-#### 🔗 My Channel
+### 🔗 My Channel
 - [YouTube](https://youtube.com/playlist?list=PL8pAt0hJ7uz1rpkWp-T4iBMyS5YlJLiSW&si=dWDoa_-ccSBxIYff)
 - [Velog](https://velog.io/@waybabydoll)
 - [GitHub](https://github.com/chachohee)
