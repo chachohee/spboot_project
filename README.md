@@ -1,8 +1,8 @@
 # GaCha Pong 💊✨
 <img width="774" alt="스크린샷 2023-09-15 오전 2 56 55" src="https://github.com/chachohee/spboot_project/assets/83406032/db36327d-cf69-4b6e-843f-ba107ecb9c09">
 
-랜덤으로 이미지를 얻고, 갤러리에 자신이 뽑은 이미지를 자랑할 수 있습니다!😊<br>
-게시판 CRUD를 중점으로 한 스프링부트 프로젝트입니다.🥚✨
+#### 랜덤으로 이미지를 얻고, 갤러리에 자신이 뽑은 이미지를 자랑할 수 있습니다!😊<br>
+#### 게시판 CRUD를 중점으로 한 스프링부트 프로젝트입니다.🥚✨
 
 # 주요 기능 설명
 ## 👩🏻‍🏫 관리자 기능
@@ -46,7 +46,8 @@
 
 ![아이디찾기](https://github.com/chachohee/spboot_project/assets/83406032/3dbdabe6-3165-422f-b8b8-3dc21f306ead)
 
-- 임시패스워드 전송(Gmail 앱 비밀번호 사용)
+- 임시패스워드 전송
+    - Gmail 앱 비밀번호 사용
 
 ![비밀번호찾기1](https://github.com/chachohee/spboot_project/assets/83406032/5aa69cd8-0ffd-48bd-87f2-0f593ce480a4)
 ![비밀번호찾기2](https://github.com/chachohee/spboot_project/assets/83406032/5a78fe47-58f4-4556-84f2-e7c6ee3461d5)
@@ -107,5 +108,6 @@
 
 <img width="1424" alt="스크린샷 2023-09-15 오전 2 28 32" src="https://github.com/chachohee/spboot_project/assets/83406032/6d5b924c-3f4f-4176-acb5-919190ba3c93">
 
-## ⚙️ 테마 변경(다크 테마/라이트 테마)
+## ⚙️ 테마 변경
+- 다크 테마/라이트 테마
 ![테마변경](https://github.com/chachohee/spboot_project/assets/83406032/6e37aaa0-abb2-4523-9a51-3330b3799c29)
