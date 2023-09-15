@@ -62,10 +62,23 @@
 
 ![단일파일업로드](https://github.com/chachohee/spboot_project/assets/83406032/ab7e6e33-37ce-429a-8210-0170c7b09fdd)
 
-## 📝 게시판 CRUD
-- 게시글 작성, 조회, 수정, 삭제
-- 댓글 작성, 조회, 수정, 삭제
-- 좋아요, 싫어요
+## 📝 게시판 기능
+- 게시글 CRUD
+    - 해당 게시글에 대한 권한이 없으면 글 상세보기 페이지에서 수정, 삭제 버튼이 보이지 않음
+ 
+![게시글1](https://github.com/chachohee/spboot_project/assets/83406032/decb7864-8531-4557-9b95-faca2257a7b8)
+![게시글2](https://github.com/chachohee/spboot_project/assets/83406032/9200e802-2d2c-4dca-918b-c0a1cd879623)
+
+- 댓글 CRUD
+
+![댓글1](https://github.com/chachohee/spboot_project/assets/83406032/c9fd1dca-c739-497c-bcd8-c1f8f0e12736)
+![댓글2](https://github.com/chachohee/spboot_project/assets/83406032/56ccab4d-969a-498b-b01a-a9abc865b4a6)
+
+- 글에 반응 남기기
+    - 좋아요, 싫어요 표시하기
+    - 추천수 : 좋아요(+1), 싫어요(-1)의 합산 결과
+
+![추천수](https://github.com/chachohee/spboot_project/assets/83406032/63ec6365-4cc6-4ae3-b3de-883684ccf81a)
 
 ## 🔍 검색 기능
 각 페이지 우측 상단에 적용
