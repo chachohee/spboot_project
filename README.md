@@ -5,9 +5,9 @@
 게시판 CRUD를 중점으로 한 스프링부트 프로젝트입니다.🥚✨
 
 ### 🔗 My Channel
-📺 [YouTube](https://youtube.com/playlist?list=PL8pAt0hJ7uz1rpkWp-T4iBMyS5YlJLiSW&si=dWDoa_-ccSBxIYff)
-📝 [Velog](https://velog.io/@waybabydoll)
-😈 [GitHub](https://github.com/chachohee)
+- 📺 [YouTube](https://youtube.com/playlist?list=PL8pAt0hJ7uz1rpkWp-T4iBMyS5YlJLiSW&si=dWDoa_-ccSBxIYff)
+- 📝 [Velog](https://velog.io/@waybabydoll)
+- 😈 [GitHub](https://github.com/chachohee)
 
 # 주요 기능 설명
 ## 👩🏻‍🏫 관리자 기능
