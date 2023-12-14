@@ -20,14 +20,30 @@
 						<th>게시판</th>
 						<td>
 							<c:if test="${rq.loginedMember.authLevel == 3 }">
-								<label>
-									<input type="radio" name="boardId" value="1" checked />
-									&nbsp;공지사항
-								</label>
-								<label>
-									<input type="radio" name="boardId" value="2"/>
-									&nbsp;자유
-								</label>
+	
+								<c:choose>
+								<c:when test="${boardId == 1}">
+									<label>
+										<input type="radio" name="boardId" value="1" checked />
+										&nbsp;공지사항
+									</label>
+									<label>
+										<input type="radio" name="boardId" value="2" />
+										&nbsp;자유
+									</label>
+								</c:when>
+								<c:otherwise>
+									<label>
+										<input type="radio" name="boardId" value="1" />
+										&nbsp;공지사항
+									</label>
+									<label>
+										<input type="radio" name="boardId" value="2" checked />
+										&nbsp;자유
+									</label>
+								</c:otherwise>
+								</c:choose>
+								
 							</c:if>
 							&nbsp;&nbsp;&nbsp;
 							<c:if test="${rq.loginedMember.authLevel != 3 }">

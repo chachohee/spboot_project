@@ -71,6 +71,7 @@
 				onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
 		</c:if>
 	</div>
+	
 	<!-- 댓글 -->
 	<script>
 	originalId = null;
@@ -122,6 +123,7 @@
 </script>
 
 	<h1 class="mt-8">댓글</h1>
+	<!-- 댓글 폼, 댓글 리스트 주석
 	<c:if test="${rq.loginedMemberId != 0 }">
 		<form action="../reply/doWrite" method="post">
 			<input type="hidden" name="relTypeCode" value="article" /> <input
@@ -138,6 +140,8 @@
 			</div>
 		</form>
 	</c:if>
+	
+	
 	<c:forEach var="reply" items="${replies }" varStatus="status">
 		<div id="${status.count }" class="py-2 pl-16 border-bottom-line">
 			<div class="flex justify-between items-end text-sm">
@@ -171,7 +175,88 @@
 			</div>
 		</div>
 	</c:forEach>
+	-->
 	<!-- end 댓글 -->
+	
+	<!-- ajax 댓글 추가 -->
+	<div id="reply-write">
+		<input type="text" id="reply" placeholder="댓글을 입력해주세요." />
+		<button id="replyWriteBtn" onclick="doWriteReply(${article.id })">댓글 등록</button>
+	</div>
+	
+	<!-- 처음 상세보기 들어갈 때 댓글 리스트 보이게 -->
+	<div>
+		<table id="reply-list" class="table">
+			<tr>
+				<th>댓글 번호</th>
+				<th>작성자</th>
+				<th>댓글 내용</th>
+				<th>등록일</th>
+			</tr>
+		<c:forEach var="reply" items="${replies }" varStatus="status">
+			<tr>
+				<td>${status.count }</td>
+				<td>${reply.writerName }</td>
+				<td>${reply.forPrintBody }</a></td>
+				<td>${reply.regDate }</td>
+			</tr>
+		</c:forEach>
+		</table>
+	</div>
+
+	<script>
+	function doWriteReply(relId){
+		let reply = $('#reply').val();
+		// console.log(reply);
+		// console.log(relId);
+		
+		// 댓글 입력 안 하면 알럿하고 입력창에 포커즈
+		if ($('#reply').val().length == 0){
+			alert('댓글을 입력해주세요.');
+			$('#reply').focus();
+			return;
+		}
+		
+		$.ajax({
+			type: 'POST',
+			url: '../reply/doWrite',
+			data: {
+				"relTypeCode" : 'article',
+				"relId" : relId, 
+				"body" : reply,
+			},
+			success: function(res){
+				// console.log("success", res);
+				
+				let replyArray = res.data1;
+				console.log(replyArray);
+				
+				let output = `<tr>
+								<th>댓글 번호</th>
+								<th>작성자</th>
+								<th>댓글 내용</th>
+								<th>등록일</th>
+							</tr>`;
+				for (let i in replyArray) {
+					output += "<tr>";
+					output += "<td>" + replyArray[i].id + "</td>";
+					output += "<td>" + replyArray[i].writerName + "</td>";
+					output += "<td>" + replyArray[i].forPrintBody + "</td>";
+					output += "<td>" + replyArray[i].regDate + "</td>";
+					output += "</tr>";
+				}
+				
+				// $('#reply-list').innerHTML = output;
+				document.getElementById("reply-list").innerHTML = output;
+				$('#reply').val("");
+			},
+			error: function(err){
+				console.log("error", err);
+			}
+		});
+	}
+	</script>
+	
 </div>
 
 <%@ include file="../common/foot.jsp"%>

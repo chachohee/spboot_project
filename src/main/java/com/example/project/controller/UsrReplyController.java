@@ -1,5 +1,7 @@
 package com.example.project.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,15 +24,30 @@ public class UsrReplyController {
 		this.replyService = replyService;
 		this.rq = rq;
 	}
-
+	
 	@RequestMapping("usr/reply/doWrite")
 	@ResponseBody
-	public String doWrite(String relTypeCode, int relId, String body) {
+	public ResultData<List<Reply>> doWrite(String relTypeCode, int relId, String body) {
 		
 		replyService.writeReply(rq.getLoginedMemberId(), relTypeCode, relId, body);
 		
-		return Util.jsReplace("댓글 작성 완료", Util.f("../article/detail?id=%d", relId));
+		List<Reply> replies = replyService.getReplies(relTypeCode, relId);
+		
+		if(replies == null) {
+			return  ResultData.from("F-1", "해당 게시글에 대한 댓글은 존재하지 않습니다.");
+		}
+		
+		return ResultData.from("S-1", "댓글 정보 조회 성공", "replies", replies);
 	}
+
+//	@RequestMapping("usr/reply/doWrite")
+//	@ResponseBody
+//	public String doWrite(String relTypeCode, int relId, String body) {
+//		
+//		replyService.writeReply(rq.getLoginedMemberId(), relTypeCode, relId, body);
+//		
+//		return Util.jsReplace("댓글 작성 완료", Util.f("../article/detail?id=%d", relId));
+//	}
 	
 	@RequestMapping("usr/reply/doDelete")
 	@ResponseBody

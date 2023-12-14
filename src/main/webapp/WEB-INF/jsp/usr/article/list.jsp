@@ -63,13 +63,13 @@
 			<c:when test="${board.id == 1 }">
 				<c:if test="${rq.loginedMember.authLevel == 3 }">
 					<div class="flex justify-end mt-4">
-						<a class="btn btn-sm" href="write">글쓰기</a>
+						<a class="btn btn-sm" href="write?boardId=${board.id}">글쓰기</a>
 					</div>
 				</c:if>
 			</c:when>
 			<c:otherwise>
 				<div class="flex justify-end mt-4">
-					<a class="btn btn-sm" href="write">글쓰기</a>
+					<a class="btn btn-sm" href="write?boardId=${board.id}">글쓰기</a>
 				</div>
 			</c:otherwise>
 		</c:choose>
